@@ -40,21 +40,18 @@ namespace UnityVicon
       Output_GetSegmentLocalTranslation OTran = Client.GetSegmentTranslation(ObjectName, SegRootName);
       if (ORot.Result == Result.Success && OTran.Result == Result.Success && !OTran.Occluded )
       {
-                // Input data is in Vicon co-ordinate space; z-up, x-forward, rhs.
-                // We need it in Unity space, y-up, z-forward lhs
-                //           Vicon Unity
-                // forward    x     z
-                // up         z     y
-                // right     -y     x
-                // See https://gamedev.stackexchange.com/questions/157946/converting-a-quaternion-in-a-right-to-left-handed-coordinate-system
+        // Input data is in Vicon co-ordinate space; z-up, x-forward, rhs.
+        // We need it in Unity space, y-up, z-forward lhs
+        //           Vicon Unity
+        // forward    x     z
+        // up         z     y
+        // right     -y     x
+        // See https://gamedev.stackexchange.com/questions/157946/converting-a-quaternion-in-a-right-to-left-handed-coordinate-system
 
-                //Root.localRotation = new Quaternion((float)ORot.Rotation[1], -(float)ORot.Rotation[2], -(float)ORot.Rotation[0], (float)ORot.Rotation[3]);
-                //Root.localPosition = new Vector3(-(float)OTran.Translation[0] * 0.001f, (float)OTran.Translation[2] * 0.001f, -(float)OTran.Translation[1] * 0.001f);
+        Root.localRotation = new Quaternion((float)ORot.Rotation[1], -(float)ORot.Rotation[2], -(float)ORot.Rotation[0], (float)ORot.Rotation[3]);
+        Root.localPosition = new Vector3(-(float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f, (float)OTran.Translation[0] * 0.001f);
 
-                Root.localRotation = new Quaternion((float)ORot.Rotation[0], -(float)ORot.Rotation[1], (float)ORot.Rotation[2], -(float)ORot.Rotation[3]);
-                Root.localPosition = new Vector3((float)OTran.Translation[0] * 0.001f, -(float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f);
-
-                m_LastGoodPosition = Root.localPosition;
+        m_LastGoodPosition = Root.localPosition;
         m_LastGoodRotation = Root.localRotation;
         m_bHasCachedPose = true;
       }
