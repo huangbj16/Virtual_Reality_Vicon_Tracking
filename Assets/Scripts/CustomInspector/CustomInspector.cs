@@ -11,7 +11,12 @@ public class CustomInspector : Editor
     InitialCalibration calibration = (InitialCalibration)target;
     if (GUILayout.Button("Capture Motion"))
     {
-      calibration.JustDoIt();
+      calibration.CaptureData();
+    }
+
+    if (GUILayout.Button("Calculate Rotation Matrix"))
+    {
+      calibration.CalculateRotationMatrix();
     }
   }
 }

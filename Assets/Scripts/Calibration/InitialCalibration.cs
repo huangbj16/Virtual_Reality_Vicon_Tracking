@@ -22,15 +22,24 @@ public class InitialCalibration : MonoBehaviour
 
   public Transform viconTransform;
 
+  public Vector3 u1;
+  public Vector3 u2;
+  public Vector3 u3;
+  public Vector3 v1;
+  public Vector3 v2;
+  public Vector3 v3;
+
   private List<CalibrationData> dataCollection = new List<CalibrationData>();
 
-  public CalibrationData[] topThreeLeastDifference = new CalibrationData[3];
+  private CalibrationData[] topThreeLeastDifference = new CalibrationData[3];
 
   private Vector3 previousViconPosition = Vector3.zero;
   private Vector3 previousUnityPosition = Vector3.zero;
 
 
-  public Matrix4x4 coordinatesRotationMatrix = Matrix4x4.identity;
+  private Matrix4x4 coordinatesRotationMatrix = Matrix4x4.identity;
+
+  private Vector3 translationVector3 = Vector3.zero;
 
 
   public void CaptureData()
@@ -43,13 +52,14 @@ public class InitialCalibration : MonoBehaviour
       float difference = Mathf.Abs(unityPositionDelta.magnitude - viconPositionDelta.magnitude);
       CalibrationData data = new CalibrationData(viconPositionDelta.normalized, unityPositionDelta.normalized, difference);
       dataCollection.Add(data);
+      UpdateInputMatrices(data);
 
     }
     previousUnityPosition = unityTransform.position;
     previousViconPosition = viconTransform.position;
   }
 
-  private void UpdateInputMatrices(Matrix4x4 viconMatrix, Matrix4x4 unityMatrix, CalibrationData newData)
+  private void UpdateInputMatrices(CalibrationData newData)
   {
     if (newData.difference < topThreeLeastDifference[0].difference)
     {
@@ -66,23 +76,45 @@ public class InitialCalibration : MonoBehaviour
     {
       topThreeLeastDifference[2] = newData;
     }
+
+    u1 = topThreeLeastDifference[0].unityDelta;
+    u2 = topThreeLeastDifference[1].unityDelta;
+    u3 = topThreeLeastDifference[2].unityDelta;
+
+    v1 = topThreeLeastDifference[0].viconDelta;
+    v2 = topThreeLeastDifference[1].viconDelta;
+    v3 = topThreeLeastDifference[2].viconDelta;
+
   }
 
-  public void CalculateRotationMatrix()
+  public Matrix4x4 CalculateRotationMatrix()
   {
-    Matrix4x4 viconMatrix = Matrix4x4.zero;
+    Matrix4x4 viconMatrix = Matrix4x4.identity;
+    Matrix4x4 unityMatrix = Matrix4x4.identity;
+
     viconMatrix.SetRow(0, new Vector4(topThreeLeastDifference[0].viconDelta.x, topThreeLeastDifference[0].viconDelta.y, topThreeLeastDifference[0].viconDelta.z, 0));
     viconMatrix.SetRow(1, new Vector4(topThreeLeastDifference[1].viconDelta.x, topThreeLeastDifference[1].viconDelta.y, topThreeLeastDifference[1].viconDelta.z, 0));
     viconMatrix.SetRow(2, new Vector4(topThreeLeastDifference[2].viconDelta.x, topThreeLeastDifference[2].viconDelta.y, topThreeLeastDifference[2].viconDelta.z, 0));
+    viconMatrix = viconMatrix.transpose;
 
-    Matrix4x4 unityMatrix = Matrix4x4.zero;
     unityMatrix.SetRow(0, new Vector4(topThreeLeastDifference[0].unityDelta.x, topThreeLeastDifference[0].unityDelta.y, topThreeLeastDifference[0].unityDelta.z, 0));
     unityMatrix.SetRow(1, new Vector4(topThreeLeastDifference[1].unityDelta.x, topThreeLeastDifference[1].unityDelta.y, topThreeLeastDifference[1].unityDelta.z, 0));
     unityMatrix.SetRow(2, new Vector4(topThreeLeastDifference[2].unityDelta.x, topThreeLeastDifference[2].unityDelta.y, topThreeLeastDifference[2].unityDelta.z, 0));
+    unityMatrix = unityMatrix.transpose;
 
-    Matrix4x4 inverseViconMatrix = viconMatrix.inverse;
-    coordinatesRotationMatrix = unityMatrix * inverseViconMatrix.transpose;
+    Matrix4x4 viconMatrixInverse = viconMatrix.inverse;
+    // A = X' * X^-1
+    coordinatesRotationMatrix = unityMatrix * viconMatrixInverse;
+    CalculateTranslationVector();
+    return getCoordinatesRotationMatrix();
+  }
 
+  public Vector3 CalculateTranslationVector()
+  {
+    // can be proved by use topLeastDifferenceData to reduce bias if necessary
+    Vector3 positionWithCoordinatesRotation = coordinatesRotationMatrix.MultiplyPoint3x4(viconTransform.position);
+    translationVector3 = unityTransform.position - positionWithCoordinatesRotation;
+    return getTranslationVector();
   }
   void Start()
   {
@@ -92,9 +124,17 @@ public class InitialCalibration : MonoBehaviour
 
   }
 
+  public Vector3 getTranslationVector()
+  {
+    Debug.Log("---- coordinate translate vector ----");
+    Debug.Log(translationVector3.ToString());
+    return translationVector3;
+  }
   // getter and setter
   public Matrix4x4 getCoordinatesRotationMatrix()
   {
+    Debug.Log("---- coordinate rotation matrix ----");
+    Debug.Log(coordinatesRotationMatrix.ToString());
     return coordinatesRotationMatrix;
   }
 }
