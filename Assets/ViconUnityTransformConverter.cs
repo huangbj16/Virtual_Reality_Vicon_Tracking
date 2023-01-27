@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Diagnostics;
 public class ViconUnityTransformConverter : MonoBehaviour
 {
 
@@ -22,32 +22,37 @@ public class ViconUnityTransformConverter : MonoBehaviour
   // public Vector3 v2 = new Vector3(0.1254f, 0.9208f, -0.3694f);
   // public Vector3 v3 = new Vector3(-0.5670f, -0.8179f, 0.0980f);
 
+public Stopwatch st = new Stopwatch();
 
-
-  // Start is called before the first frame update
-  void Start()
+    // Start is called before the first frame update
+    void Start()
   {
 
   }
 
   // Update is called once per frame
-  void Update()
+  void FixedUpdate()
   {
     if (!converterIsOn) return;
 
     foreach (Transform viconTransform in objectCollection.transform)
     {
-      Transform unityTransform = viconTransform.GetComponent<GetUnityTransform>().unityTransform;
-      // calculate new transform with vicon transform and calibration matrix.
-      Vector3 forward = viconTransform.transform.forward;
-      Vector3 up = unityTransform.up;
-      // need to check if here is correct, since MultiplePoint3x4 is newly introduced.
-      Vector3 forward_conv = coordinatesRotationMatrix.MultiplyPoint3x4(forward);
-      Vector3 up_conv = coordinatesRotationMatrix.MultiplyPoint3x4(up);
-      unityTransform.rotation = Quaternion.LookRotation(forward_conv, up_conv);
-      unityTransform.position = coordinatesRotationMatrix.MultiplyPoint3x4(viconTransform.position) + translateVector;
+        
+        //Whatever needs timing here
+        Transform unityTransform = viconTransform.GetComponent<GetUnityTransform>().unityTransform;
+            /**
+        // calculate new transform with vicon transform and calibration matrix.
+        Vector3 forward = viconTransform.transform.forward;
+        Vector3 up = unityTransform.up;
+        // need to check if here is correct, since MultiplePoint3x4 is newly introduced.
+        Vector3 forward_conv = coordinatesRotationMatrix.MultiplyPoint3x4(forward);
+        Vector3 up_conv = coordinatesRotationMatrix.MultiplyPoint3x4(up);
+        unityTransform.rotation = Quaternion.LookRotation(forward_conv, up_conv);
+        **/
+            unityTransform.position = coordinatesRotationMatrix.MultiplyPoint3x4(viconTransform.position) + translateVector;
+        }
+        
     }
-  }
 
   // void test matrix rotation function
 

@@ -41,6 +41,9 @@ public class InitialCalibration : MonoBehaviour
 
   private Vector3 translationVector3 = Vector3.zero;
 
+  public ViconUnityTransformConverter dataConverter;
+
+
 
   public void CaptureData()
   {
@@ -85,6 +88,9 @@ public class InitialCalibration : MonoBehaviour
     v2 = topThreeLeastDifference[1].viconDelta;
     v3 = topThreeLeastDifference[2].viconDelta;
 
+    
+
+
   }
 
   public Matrix4x4 CalculateRotationMatrix()
@@ -106,6 +112,9 @@ public class InitialCalibration : MonoBehaviour
     // A = X' * X^-1
     coordinatesRotationMatrix = unityMatrix * viconMatrixInverse;
     CalculateTranslationVector();
+
+    dataConverter.coordinatesRotationMatrix = coordinatesRotationMatrix;
+    dataConverter.translateVector = translationVector3;
     return getCoordinatesRotationMatrix();
   }
 
