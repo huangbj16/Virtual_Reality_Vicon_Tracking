@@ -294,6 +294,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
+      propertyPath: Port
+      value: 801
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
+      propertyPath: Offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
       propertyPath: HostName
       value: 172.21.12.102
       objectReference: {fileID: 0}
@@ -1469,23 +1477,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollection: {fileID: 341366365}
   coordinatesRotationMatrix:
-    e00: -0.05500762
-    e01: 0.01495793
-    e02: 0.9819764
+    e00: -0.9834451
+    e01: 0.004567473
+    e02: 0.15222509
     e03: 0
-    e10: -0.01595928
-    e11: 1.000939
-    e12: -0.003706547
+    e10: 0.0016628854
+    e11: 1.0028514
+    e12: -0.017743183
     e13: 0
-    e20: -0.8839734
-    e21: -0.001595343
-    e22: -0.1321764
+    e20: -0.16173704
+    e21: -0.011041218
+    e22: -0.9847054
     e23: 0
     e30: 0
     e31: 0
     e32: 0
     e33: 1
-  translateVector: {x: -0.8143721, y: 0.003746748, z: 1.065885}
+  translateVector: {x: -0.09737315, y: 0.014831781, z: 0.8662457}
+  leftController: {fileID: 1511756612}
   converterIsOn: 1
 --- !u!1 &1511756611
 GameObject:

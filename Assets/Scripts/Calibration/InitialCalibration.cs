@@ -88,9 +88,6 @@ public class InitialCalibration : MonoBehaviour
     v2 = topThreeLeastDifference[1].viconDelta;
     v3 = topThreeLeastDifference[2].viconDelta;
 
-    
-
-
   }
 
   public Matrix4x4 CalculateRotationMatrix()
@@ -133,7 +130,7 @@ public class InitialCalibration : MonoBehaviour
 
   }
 
-  public Vector3 getTranslationVector()
+    public Vector3 getTranslationVector()
   {
     Debug.Log("---- coordinate translate vector ----");
     Debug.Log(translationVector3.ToString());

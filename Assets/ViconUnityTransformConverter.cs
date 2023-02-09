@@ -10,6 +10,8 @@ public class ViconUnityTransformConverter : MonoBehaviour
 
   public Vector3 translateVector;
 
+  public Transform leftController;
+
   public bool converterIsOn = false;
 
   // // for testing
@@ -49,6 +51,7 @@ public Stopwatch st = new Stopwatch();
         Vector3 up_conv = coordinatesRotationMatrix.MultiplyPoint3x4(up);
         unityTransform.rotation = Quaternion.LookRotation(forward_conv, up_conv);
         **/
+            //unityTransform.position = Matrix4x4.identity.MultiplyPoint3x4(leftController.position) + new Vector3(0, 0, 0);
             unityTransform.position = coordinatesRotationMatrix.MultiplyPoint3x4(viconTransform.position) + translateVector;
         }
         
