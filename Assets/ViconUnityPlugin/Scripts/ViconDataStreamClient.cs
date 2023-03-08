@@ -15,7 +15,7 @@ public class ViconDataStreamClient : MonoBehaviour
   public string HostName = "localhost";
   
   [Tooltip("The Datastream port number. Typically 804 for the low latency stream and 801 if off-line review is required.")]
-  public string Port = "801";
+  public string Port = "804";
   
   [Tooltip("Enter a comma separated list of subjects that are required in the stream. If empty, all subjects will be transmitted.")]
   public string SubjectFilter;
