@@ -80,7 +80,7 @@ namespace UnityVicon
         Quaternion Rot = new Quaternion((float)ORot.Rotation[0], (float)ORot.Rotation[1], (float)ORot.Rotation[2], (float)ORot.Rotation[3]);
         // mapping right hand to left hand flipping x
         //Bone.localRotation = new Quaternion(Rot.x, -Rot.y, -Rot.z, Rot.w);
-        Bone.localRotation = new Quaternion(-Rot.y, -Rot.z, Rot.x, Rot.w);
+        Bone.localRotation = new Quaternion(Rot.y, -Rot.z, -Rot.x, Rot.w);
       }
 
       Output_GetSegmentLocalTranslation OTran;
@@ -98,7 +98,7 @@ namespace UnityVicon
         //Vector3 Translate = new Vector3(-(float)OTran.Translation[2] * 0.001f, -(float)OTran.Translation[0] * 0.001f, (float)OTran.Translation[1] * 0.001f);
         Vector3 Translate = new Vector3((float)OTran.Translation[0] * 0.001f, (float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f);
         //Bone.localPosition = new Vector3(-Translate.x, Translate.y, Translate.z);
-        Bone.localPosition = new Vector3(Translate.y, Translate.z, -Translate.x);
+        Bone.localPosition = new Vector3(-Translate.y, Translate.z, Translate.x);
       }
 
       // If there's a scale for this subject in the datastream, apply it here.
