@@ -3,7 +3,7 @@ using UnityEditor;
 
 [CustomEditor(typeof(InitialCalibration))]
 [CanEditMultipleObjects]
-public class CustomInspector : Editor
+public class CustomCalibrationInspector : Editor
 {
   public override void OnInspectorGUI()
   {

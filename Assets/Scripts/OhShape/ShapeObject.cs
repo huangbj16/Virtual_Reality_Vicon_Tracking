@@ -4,36 +4,39 @@ using UnityEngine;
 
 public class ShapeObject : MonoBehaviour
 {
-  public Vector3 destination;
+
+  public Vector3 localPosition;
+
+  public Vector3 localRotation;
   public float movementSpeed;
 
   private Vector3 direction;
 
   private bool initialized = false;
 
-  public void initialize(Vector3 dest, float speed)
+  public void Initialize(Vector3 localPosition, Quaternion localRotation, float speed)
   {
-    transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
-    destination = dest;
-    movementSpeed = speed;
-    direction = (destination - transform.position).normalized;
+    Reset(localPosition, localRotation, speed);
     initialized = true;
+    Destroy(gameObject, 10f);
   }
 
-  public void move()
+  public void Reset(Vector3 localPosition, Quaternion localRotation, float speed)
   {
-    if ((destination - transform.position).magnitude < 0.05f)
-    {
-      Destroy(gameObject, 1f);
-    }
-
-    transform.position += direction * movementSpeed * Time.deltaTime;
+    transform.localRotation = localRotation;
+    transform.localPosition = localPosition;
+    movementSpeed = speed;
+    direction = Vector3.forward;
+  }
+  public void Move()
+  {
+    transform.localPosition += direction * movementSpeed * Time.deltaTime;
 
   }
 
 
   void Update()
   {
-    if (initialized) move();
+    if (initialized) Move();
   }
 }
