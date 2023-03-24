@@ -40,7 +40,7 @@ public class ShapeGenerator : MonoBehaviour
     GameObject shapeToBuild = shapePrefabs[Random.Range(0, shapePrefabs.Length)];
     GameObject newShape = Instantiate(shapeToBuild, Vector3.zero, Quaternion.identity) as GameObject;
     newShape.transform.SetParent(transform);
-    newShape.GetComponent<ShapeObject>().Initialize(Vector3.zero, Quaternion.Euler(-90.0f, 0, 0), speed);
+    newShape.GetComponent<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
     shapeObjects.Add(newShape);
   }
 

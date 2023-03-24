@@ -64,6 +64,5 @@ public class HapticMotor : MonoBehaviour
   void OnTriggerExit(Collider other)
   {
     StopVibrate();
-
   }
 }

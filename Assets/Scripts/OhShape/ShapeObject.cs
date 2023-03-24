@@ -8,7 +8,7 @@ public class ShapeObject : MonoBehaviour
   public Vector3 localPosition;
 
   public Vector3 localRotation;
-  public float movementSpeed;
+  public float movementSpeed = 1.0f;
 
   private Vector3 direction;
 
