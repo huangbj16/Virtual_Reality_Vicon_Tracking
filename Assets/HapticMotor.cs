@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using System;
 
+[Serializable]
 public class HapticMotor : MonoBehaviour
 {
 
@@ -16,19 +18,53 @@ public class HapticMotor : MonoBehaviour
 
   public int flag = 0;
 
+    private GameObject senderObject;
+    private TcpSender sender;
+    public Dictionary<string, int> command;
+
+    public int motor_id = 0;
+
   void Start()
   {
     visualEffect = GetComponent<VisualEffect>();
-  }
+    senderObject = GameObject.Find("TCPSenderObject");
+    sender = senderObject.GetComponent<TcpSender>();
+    command = new Dictionary<string, int>
+        {
+            { "addr", motor_id },
+            { "mode", 0 },
+            { "duty", 3 },
+            { "freq", 2 },
+            { "wave", 1 }
+        };
+    }
 
-  public void StartVibrate()
+    public string DictionaryToString(Dictionary<string, int> dictionary)
+    {
+        string dictionaryString = "{";
+        foreach (KeyValuePair<string, int> keyValues in dictionary)
+        {
+            dictionaryString += "\"" + keyValues.Key + "\": " + keyValues.Value + ", ";
+        }
+        return dictionaryString.TrimEnd(',', ' ') + "}";
+    }
+
+    public void StartVibrate()
   {
     isTriggered = true;
-    visualEffect.Reinit();
-    // send data to certain port....
-    // visualEffect.Play();
-    visualEffect.enabled = true;
-    Debug.Log("Send start command to PORT:1000");
+    // trigger visual effect if exists
+    if (visualEffect != null)
+    {
+        visualEffect.Reinit();
+        // visualEffect.Play();
+        visualEffect.enabled = true;
+    }
+    // send TCP command
+    Debug.Log("Send start command to PORT:9051");
+    command["mode"] = 1;
+    string commandString = DictionaryToString(command);
+    Debug.Log(commandString);
+    sender.SendData(commandString);
   }
 
   public void Vibrate()
@@ -39,11 +75,19 @@ public class HapticMotor : MonoBehaviour
 
   public void StopVibrate()
   {
-    // send data to certain port....
-    isTriggered = false;
-    // visualEffect.Stop();
-    visualEffect.enabled = false;
-    Debug.Log("Send stop command to PORT:1000");
+    // stop visual effect if exists
+    if (visualEffect != null)
+    {
+        isTriggered = false;
+        // visualEffect.Stop();
+        visualEffect.enabled = false;
+    }
+    //send TCP command
+    Debug.Log("Send stop command to PORT:9051");
+    command["mode"] = 0;
+    string commandString = DictionaryToString(command);
+    Debug.Log(commandString);
+    sender.SendData(commandString);
   }
 
 
@@ -58,11 +102,13 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
+    Debug.Log("collision starts with " + other.name);
     StartVibrate();
   }
 
   void OnTriggerExit(Collider other)
   {
-    StopVibrate();
+        Debug.Log("collision ends with " + other.name);
+        StopVibrate();
   }
 }
