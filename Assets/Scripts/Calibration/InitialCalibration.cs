@@ -24,8 +24,8 @@ public class InitialCalibration : MonoBehaviour
     private List<CalibrationData> dataCollection = new List<CalibrationData>();
     private CalibrationData[] topThreeLeastDifference = new CalibrationData[3];
 
-    private Vector3 anchorUnityPosition = Vector3.zero;
-    private Vector3 anchorViconPosition = Vector3.zero;
+    public Vector3 anchorUnityPosition = Vector3.zero;
+    public Vector3 anchorViconPosition = Vector3.zero;
     private float differenceThreshold = 0.01f; // change if need
     private float magnitureThreshold = 0.05f; // change if need
 
@@ -39,6 +39,7 @@ public class InitialCalibration : MonoBehaviour
     // setup the anchor point for both coordinates, used for following comparsions.
     public void CaptureAnchor()
     {
+        Debug.Log("Capture Anchor");
         anchorUnityPosition = unityTransform.position;
         anchorViconPosition = viconTransform.position;
     }
