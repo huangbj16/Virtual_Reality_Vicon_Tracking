@@ -9,6 +9,12 @@ public class CustomCalibrationInspector : Editor
   {
     DrawDefaultInspector();
     InitialCalibration calibration = (InitialCalibration)target;
+
+    if (GUILayout.Button("Capture Anchor"))
+    {
+      calibration.CaptureAnchor();
+    }
+
     if (GUILayout.Button("Capture Motion"))
     {
       calibration.CaptureData();
