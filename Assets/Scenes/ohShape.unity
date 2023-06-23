@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 159482429}
   - component: {fileID: 159482428}
   m_Layer: 0
-  m_Name: wrist
+  m_Name: start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 1328277002}
   - component: {fileID: 1328277001}
   m_Layer: 0
-  m_Name: elbow
+  m_Name: end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 1955047844}
   - component: {fileID: 1955047845}
   m_Layer: 0
-  m_Name: 3
+  m_Name: motorSetPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 159482427}
   end: {fileID: 1328277000}
-  numberOfMotors: 5
+  numberOfMotors: 10
   hapticMotors: []
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1989062323 stripped
