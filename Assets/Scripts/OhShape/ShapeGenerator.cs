@@ -7,10 +7,10 @@ public class ShapeGenerator : MonoBehaviour
   public float timeEscape = 1.0f;
   public float movementSpeed = 1.0f;
   public float distance = 5f;
-
   public static GameObject[] shapePrefabs;
-
   public float previousTimeStamp = 0.0f;
+
+  public ShapeGeneratorConfig currentConfig;
 
   private List<GameObject> shapeObjects;
   GameObject destinationObject;
@@ -22,6 +22,9 @@ public class ShapeGenerator : MonoBehaviour
     ResetDestination();
     shapePrefabs = Resources.LoadAll<GameObject>("Prefabs/Shapes");
     shapeObjects = new List<GameObject>();
+
+    // set mode to practice by default
+    setMode(ShapeGeneratorConstants.PRACTICE_MODE);
   }
 
   // Update is called once per frame
@@ -59,5 +62,12 @@ public class ShapeGenerator : MonoBehaviour
     destinationObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
     destinationObject.transform.localPosition = transform.forward * distance;
     destinationObject.transform.localRotation = Quaternion.identity;
+  }
+
+  public void setMode(string mode)
+  {
+    string configPath = System.IO.Path.Combine(Application.dataPath, "Scripts/OhShape/ShapeGeneratorConfig/" + mode + ".json");
+    string configString = System.IO.File.ReadAllText(configPath);
+    currentConfig = JsonUtility.FromJson<ShapeGeneratorConfig>(configString);
   }
 }
