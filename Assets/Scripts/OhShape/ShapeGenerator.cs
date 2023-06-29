@@ -9,11 +9,14 @@ public class ShapeGenerator : MonoBehaviour
   public float distance = 5f;
   public static GameObject[] shapePrefabs;
   public float previousTimeStamp = 0.0f;
-
   public ShapeGeneratorConfig currentConfig;
-
   private List<GameObject> shapeObjects;
   GameObject destinationObject;
+
+  // game info
+  public int currentShapeCount = 0;
+  // this will control the game
+  public bool pause = true;
 
   // Start is called before the first frame update
   void Start()
@@ -30,12 +33,20 @@ public class ShapeGenerator : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Time.time - previousTimeStamp > timeEscape)
+    // generate the wall
+    if (!pause && currentShapeCount < currentConfig.numberOfShape)
     {
-      GenerateShape(movementSpeed, shapePrefabs, shapeObjects);
-      previousTimeStamp = Time.time;
+      if (Time.time - previousTimeStamp > timeEscape)
+      {
+        GenerateShape(movementSpeed, shapePrefabs, shapeObjects);
+        currentShapeCount += 1;
+        previousTimeStamp = Time.time;
+      }
     }
-
+    else if (currentShapeCount == currentConfig.numberOfShape)
+    {
+      resetShapeGeneator();
+    }
   }
 
   void GenerateShape(float speed, GameObject[] shapePrefabs, List<GameObject> shapeObjects)
@@ -69,5 +80,11 @@ public class ShapeGenerator : MonoBehaviour
     string configPath = System.IO.Path.Combine(Application.dataPath, "Scripts/OhShape/ShapeGeneratorConfig/" + mode + ".json");
     string configString = System.IO.File.ReadAllText(configPath);
     currentConfig = JsonUtility.FromJson<ShapeGeneratorConfig>(configString);
+  }
+
+  public void resetShapeGeneator()
+  {
+    pause = true;
+    currentShapeCount = 0;
   }
 }

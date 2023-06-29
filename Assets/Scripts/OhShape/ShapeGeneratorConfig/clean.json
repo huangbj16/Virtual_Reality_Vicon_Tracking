@@ -1,6 +1,6 @@
 {
   "mode": "CLEAN",
   "repeat": false,
-  "numberOfRound": 1,
-  "numberrOfShape": 20
+  "numberOfRound": 2,
+  "numberOfShape": 20
 }
