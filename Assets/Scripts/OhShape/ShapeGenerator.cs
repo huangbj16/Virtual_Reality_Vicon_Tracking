@@ -15,6 +15,8 @@ public class ShapeGenerator : MonoBehaviour
   private List<int> shapeRandomIndexs;
   GameObject destinationObject;
 
+  UserData currentUserData;
+
   // game info
   public int currentShapeCount = 0;
   // this will control the game
@@ -29,7 +31,7 @@ public class ShapeGenerator : MonoBehaviour
     shapeObjects = new List<GameObject>();
     shapeRandomIndexs = new List<int>();
     // set mode to practice by default
-    setMode(ShapeGeneratorConstants.PRACTICE_MODE);
+    setModeAndResetGame(ShapeGeneratorConstants.PRACTICE_MODE);
   }
 
   // Update is called once per frame
@@ -78,7 +80,7 @@ public class ShapeGenerator : MonoBehaviour
     destinationObject.transform.localRotation = Quaternion.identity;
   }
 
-  public void setMode(string mode)
+  public void setModeAndResetGame(string mode)
   {
     string configPath = System.IO.Path.Combine(Application.dataPath, "Scripts/OhShape/ShapeGeneratorConfig/" + mode + ".json");
     string configString = System.IO.File.ReadAllText(configPath);
@@ -92,6 +94,7 @@ public class ShapeGenerator : MonoBehaviour
       shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)));
     }
     shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)).Take(currentConfig.numberOfShape % shapePrefabLength));
+    // currentUserData = new UserData()
   }
 
   public void resetShapeGeneator()
