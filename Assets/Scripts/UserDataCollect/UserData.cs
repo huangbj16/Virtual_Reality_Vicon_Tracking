@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -29,9 +30,9 @@ public class UserData
     this.alertData = new List<AlertData>();
   }
 
-  public void triggerAlert(int numberOfActuatorsTriggered)
+  public void TriggerAlert(int actutorId, float currentTimestamp)
   {
-    this.alertData.Add(new AlertData(numberOfActuatorsTriggered));
+    this.alertData.Add(new AlertData(actutorId, currentTimestamp));
   }
 
 }
@@ -40,10 +41,18 @@ public class UserData
 [System.Serializable]
 public class AlertData
 {
-  public int numberOfActuatorsTriggered;
+    public int actutorId;
+    public float timestamp;
+    public float duration;
 
-  public AlertData(int numberOfActuatorsTriggered)
+  public AlertData(int actutorId)
   {
-    this.numberOfActuatorsTriggered = numberOfActuatorsTriggered
+        this.actutorId = actutorId;
+        this.timestamp = Time.time;
   }
+    
+  public void CalculateAlertDuration()
+    {
+        this.duration = Time.time - this.timestamp;
+    } 
 }

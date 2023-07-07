@@ -24,6 +24,8 @@ public class HapticMotor : MonoBehaviour
 
     public int motor_id = 0;
 
+    public AlertData alertData;
+
   void Start()
   {
     visualEffect = GetComponent<VisualEffect>();
@@ -65,6 +67,7 @@ public class HapticMotor : MonoBehaviour
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
     sender.SendData(commandString);
+        alertData = new AlertData(motor_id);
   }
 
   public void Vibrate()
@@ -88,11 +91,13 @@ public class HapticMotor : MonoBehaviour
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
     sender.SendData(commandString);
-  }
+        alertData.CalculateAlertDuration();
+        // add event handler to trigger ohshape generator
+    }
 
 
-  // Update is called once per frame
-  void Update()
+    // Update is called once per frame
+    void Update()
   {
     if (isTriggered)
     {
