@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShapeGenerator : MonoBehaviour
@@ -11,6 +12,7 @@ public class ShapeGenerator : MonoBehaviour
   public float previousTimeStamp = 0.0f;
   public ShapeGeneratorConfig currentConfig;
   private List<GameObject> shapeObjects;
+  private List<int> shapeRandomIndexs;
   GameObject destinationObject;
 
   // game info
@@ -25,7 +27,7 @@ public class ShapeGenerator : MonoBehaviour
     ResetDestination();
     shapePrefabs = Resources.LoadAll<GameObject>("Prefabs/Shapes");
     shapeObjects = new List<GameObject>();
-
+    shapeRandomIndexs = new List<int>();
     // set mode to practice by default
     setMode(ShapeGeneratorConstants.PRACTICE_MODE);
   }
@@ -38,7 +40,7 @@ public class ShapeGenerator : MonoBehaviour
     {
       if (Time.time - previousTimeStamp > timeEscape)
       {
-        GenerateShape(movementSpeed, shapePrefabs, shapeObjects);
+        GenerateShape(movementSpeed, shapePrefabs, shapeRandomIndexs, shapeObjects);
         currentShapeCount += 1;
         previousTimeStamp = Time.time;
       }
@@ -49,9 +51,10 @@ public class ShapeGenerator : MonoBehaviour
     }
   }
 
-  void GenerateShape(float speed, GameObject[] shapePrefabs, List<GameObject> shapeObjects)
+  void GenerateShape(float speed, GameObject[] shapePrefabs, List<int> shapeRandomIndexs, List<GameObject> shapeObjects)
   {
-    GameObject shapeToBuild = shapePrefabs[Random.Range(0, shapePrefabs.Length)];
+    int shapeIndex = shapeRandomIndexs[currentShapeCount];
+    GameObject shapeToBuild = shapePrefabs[shapeIndex];
     GameObject newShape = Instantiate(shapeToBuild, Vector3.zero, Quaternion.identity) as GameObject;
     newShape.transform.SetParent(transform);
     newShape.GetComponent<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
@@ -80,11 +83,39 @@ public class ShapeGenerator : MonoBehaviour
     string configPath = System.IO.Path.Combine(Application.dataPath, "Scripts/OhShape/ShapeGeneratorConfig/" + mode + ".json");
     string configString = System.IO.File.ReadAllText(configPath);
     currentConfig = JsonUtility.FromJson<ShapeGeneratorConfig>(configString);
+    int shapePrefabLength = shapePrefabs.Length;
+
+    int[] rangeToArray = Enumerable.Range(0, shapePrefabLength).ToArray();
+
+    for (int i = 0; i < currentConfig.numberOfShape / shapePrefabLength; i++)
+    {
+      shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)));
+    }
+    shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)).Take(currentConfig.numberOfShape % shapePrefabLength));
   }
 
   public void resetShapeGeneator()
   {
     pause = true;
     currentShapeCount = 0;
+    shapeRandomIndexs.Clear();
+  }
+
+  List<int> Shuffle(List<int> a)
+  {
+    // Loops through array
+    for (int i = a.Count - 1; i > 0; i--)
+    {
+      // Randomize a number between 0 and i (so that the range decreases each time)
+      int rnd = Random.Range(0, i);
+
+      // Save the value of the current i, otherwise it'll overright when we swap the values
+      int temp = a[i];
+
+      // Swap the new and old values
+      a[i] = a[rnd];
+      a[rnd] = temp;
+    }
+    return a;
   }
 }
