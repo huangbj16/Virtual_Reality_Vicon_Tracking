@@ -1,6 +1,6 @@
 {
   "mode": "HAPTIC",
   "repeat": false,
-  "numberOfRound": 4,
-  "numberOfShape": 20
+  "numberOfRounds": 4,
+  "numberOfShapes": 20
 }

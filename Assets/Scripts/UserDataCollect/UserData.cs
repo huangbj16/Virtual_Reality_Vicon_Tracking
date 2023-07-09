@@ -9,13 +9,15 @@ public class UserData
   public string date;
   public string gameName;
   public string mode; // PRACTICE, PLAYGROUND, VISUAL_ONLY, HAPTIC
-  public int numberOfRound;
-  public int numberOfShape;
+  public int numberOfRounds;
+  public int numberOfShapes;
   public int roundNumber;
 
-  public int numberOfCollusion;
+  public int numberOfCollusions;
 
   public Dictionary<string, List<CollusionData>> collusionData;
+
+  public List<CollusionData> collusions;
 
   public UserData(string userId, string date, string gameName, ShapeGeneratorConfig gameConfig, int roundNumber)
   {
@@ -23,11 +25,12 @@ public class UserData
     this.date = date;
     this.gameName = gameName;
     this.mode = gameConfig.mode;
-    this.numberOfRound = gameConfig.numberOfRound;
-    this.numberOfShape = gameConfig.numberOfShape;
+    this.numberOfRounds = gameConfig.numberOfRounds;
+    this.numberOfShapes = gameConfig.numberOfShapes;
     this.roundNumber = roundNumber;
-    this.numberOfCollusion = 0;
+    this.numberOfCollusions = 0;
     this.collusionData = new Dictionary<string, List<CollusionData>>();
+    this.collusions = new List<CollusionData>();
   }
 
   public void TriggerAlert(int actutorId, string other)
@@ -37,6 +40,17 @@ public class UserData
       this.collusionData[other] = new List<CollusionData>();
     }
     this.collusionData[other].Add(new CollusionData(actutorId, other));
+
+    numberOfCollusions += 1;
+
+  }
+
+  public void ToObject()
+  {
+    foreach (KeyValuePair<string, List<CollusionData>> pair in collusionData)
+    {
+      this.collusions.AddRange(pair.Value);
+    }
 
   }
 

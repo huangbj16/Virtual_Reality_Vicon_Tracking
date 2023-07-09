@@ -40,7 +40,7 @@ public class ShapeGenerator : MonoBehaviour
   void Update()
   {
     // generate the wall
-    if (!pause && currentShapeCount < currentConfig.numberOfShape)
+    if (!pause && currentShapeCount < currentConfig.numberOfShapes)
     {
       if (Time.time - previousTimeStamp > timeEscape)
       {
@@ -49,7 +49,7 @@ public class ShapeGenerator : MonoBehaviour
         previousTimeStamp = Time.time;
       }
     }
-    else if (currentShapeCount == currentConfig.numberOfShape)
+    else if (currentShapeCount == currentConfig.numberOfShapes)
     {
       pause = true;
     }
@@ -95,11 +95,10 @@ public class ShapeGenerator : MonoBehaviour
     currentShapeCount = 0;
     int shapePrefabLength = shapePrefabs.Length;
     int[] rangeToArray = Enumerable.Range(0, shapePrefabLength).ToArray();
-    for (int i = 0; i < currentConfig.numberOfShape / shapePrefabLength; i++)
+    for (int i = 0; i < currentConfig.numberOfShapes / shapePrefabLength; i++)
     {
       shapeRandomIndexs.AddRange(new List<int>(rangeToArray));
     }
-    // shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)).Take(currentConfig.numberOfShape % shapePrefabLength));
     Shuffle(shapeRandomIndexs);
     // init userData HARD-CODE
     currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, 0);
@@ -113,6 +112,11 @@ public class ShapeGenerator : MonoBehaviour
       Directory.CreateDirectory(exportFolderPath);
     }
 
+    List<CollusionData> testData = new List<CollusionData>();
+    testData.Add(new CollusionData(1, "wall1"));
+    currentUserData.collusionData["1"] = testData;
+    currentUserData.collusionData["2"] = testData;
+    currentUserData.ToObject();
     string jsonData = JsonUtility.ToJson(currentUserData);
     string filePath = exportFolderPath + "/" + getDateTime() + ".json";
     File.WriteAllText(filePath, jsonData);
