@@ -18,13 +18,13 @@ public class HapticMotor : MonoBehaviour
 
   public int flag = 0;
 
-    private GameObject senderObject;
-    private TcpSender sender;
-    public Dictionary<string, int> command;
+  private GameObject senderObject;
+  private TcpSender sender;
+  public Dictionary<string, int> command;
 
-    public int motor_id = 0;
+  public int motor_id = 0;
 
-    public AlertData alertData;
+  public CollusionData collusionData;
 
   void Start()
   {
@@ -39,27 +39,27 @@ public class HapticMotor : MonoBehaviour
             { "freq", 2 },
             { "wave", 1 }
         };
-    }
+  }
 
-    public string DictionaryToString(Dictionary<string, int> dictionary)
+  public string DictionaryToString(Dictionary<string, int> dictionary)
+  {
+    string dictionaryString = "{";
+    foreach (KeyValuePair<string, int> keyValues in dictionary)
     {
-        string dictionaryString = "{";
-        foreach (KeyValuePair<string, int> keyValues in dictionary)
-        {
-            dictionaryString += "\"" + keyValues.Key + "\": " + keyValues.Value + ", ";
-        }
-        return dictionaryString.TrimEnd(',', ' ') + "}";
+      dictionaryString += "\"" + keyValues.Key + "\": " + keyValues.Value + ", ";
     }
+    return dictionaryString.TrimEnd(',', ' ') + "}";
+  }
 
-    public void StartVibrate()
+  public void StartVibrate(string other)
   {
     isTriggered = true;
     // trigger visual effect if exists
     if (visualEffect != null)
     {
-        visualEffect.Reinit();
-        // visualEffect.Play();
-        visualEffect.enabled = true;
+      visualEffect.Reinit();
+      // visualEffect.Play();
+      visualEffect.enabled = true;
     }
     // send TCP command
     Debug.Log("Send start command to PORT:9051");
@@ -67,7 +67,7 @@ public class HapticMotor : MonoBehaviour
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
     sender.SendData(commandString);
-        alertData = new AlertData(motor_id);
+    collusionData = new CollusionData(motor_id, other);
   }
 
   public void Vibrate()
@@ -81,9 +81,9 @@ public class HapticMotor : MonoBehaviour
     // stop visual effect if exists
     if (visualEffect != null)
     {
-        isTriggered = false;
-        // visualEffect.Stop();
-        visualEffect.enabled = false;
+      isTriggered = false;
+      // visualEffect.Stop();
+      visualEffect.enabled = false;
     }
     //send TCP command
     Debug.Log("Send stop command to PORT:9051");
@@ -91,13 +91,13 @@ public class HapticMotor : MonoBehaviour
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
     sender.SendData(commandString);
-        alertData.CalculateAlertDuration();
-        // add event handler to trigger ohshape generator
-    }
+    collusionData.CalculateCollusionDuration();
+    // add event handler to trigger ohshape generator
+  }
 
 
-    // Update is called once per frame
-    void Update()
+  // Update is called once per frame
+  void Update()
   {
     if (isTriggered)
     {
@@ -108,12 +108,12 @@ public class HapticMotor : MonoBehaviour
   void OnTriggerEnter(Collider other)
   {
     Debug.Log("collision starts with " + other.name);
-    StartVibrate();
+    StartVibrate(other.name);
   }
 
   void OnTriggerExit(Collider other)
   {
-        Debug.Log("collision ends with " + other.name);
-        StopVibrate();
+    Debug.Log("collision ends with " + other.name);
+    StopVibrate();
   }
 }

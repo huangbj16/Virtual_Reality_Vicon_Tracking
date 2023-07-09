@@ -36,24 +36,37 @@ public class OhShapeGeneratorInspector : Editor
     GUILayout.BeginHorizontal();
     if (GUILayout.Button("Practice Mode", modeButtonLayout))
     {
-      ohShapeGenerator.setModeAndResetGame(ShapeGeneratorConstants.PRACTICE_MODE);
+      ohShapeGenerator.SetMode(ShapeGeneratorConstants.PRACTICE_MODE);
     }
 
     if (GUILayout.Button("Clean Mode", modeButtonLayout))
     {
-      ohShapeGenerator.setModeAndResetGame(ShapeGeneratorConstants.CLEAN_MODE);
+      ohShapeGenerator.SetMode(ShapeGeneratorConstants.CLEAN_MODE);
     }
 
     if (GUILayout.Button("Visual Mode", modeButtonLayout))
     {
-      ohShapeGenerator.setModeAndResetGame(ShapeGeneratorConstants.VISUAL_MODE);
+      ohShapeGenerator.SetMode(ShapeGeneratorConstants.VISUAL_MODE);
     }
 
     if (GUILayout.Button("Haptic Mode", modeButtonLayout))
     {
-      ohShapeGenerator.setModeAndResetGame(ShapeGeneratorConstants.HAPTIC_MODE);
+      ohShapeGenerator.SetMode(ShapeGeneratorConstants.HAPTIC_MODE);
     }
 
+    GUILayout.EndHorizontal();
+
+
+    GUILayout.BeginHorizontal();
+    if (GUILayout.Button("Start", modeButtonLayout))
+    {
+      ohShapeGenerator.StartGame();
+    }
+
+    // if (GUILayout.Button("Pause", modeButtonLayout))
+    // {
+    //   ohShapeGenerator.PauseGame();
+    // }
     GUILayout.EndHorizontal();
   }
 }

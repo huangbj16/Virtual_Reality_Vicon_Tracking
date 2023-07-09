@@ -13,9 +13,9 @@ public class UserData
   public int numberOfShape;
   public int roundNumber;
 
-  public int numberOfAlert;
+  public int numberOfCollusion;
 
-  public List<AlertData> alertData;
+  public Dictionary<string, List<CollusionData>> collusionData;
 
   public UserData(string userId, string date, string gameName, ShapeGeneratorConfig gameConfig, int roundNumber)
   {
@@ -26,33 +26,41 @@ public class UserData
     this.numberOfRound = gameConfig.numberOfRound;
     this.numberOfShape = gameConfig.numberOfShape;
     this.roundNumber = roundNumber;
-    this.numberOfAlert = 0;
-    this.alertData = new List<AlertData>();
+    this.numberOfCollusion = 0;
+    this.collusionData = new Dictionary<string, List<CollusionData>>();
   }
 
-  public void TriggerAlert(int actutorId, float currentTimestamp)
+  public void TriggerAlert(int actutorId, string other)
   {
-    this.alertData.Add(new AlertData(actutorId, currentTimestamp));
+    if (!this.collusionData.ContainsKey(other))
+    {
+      this.collusionData[other] = new List<CollusionData>();
+    }
+    this.collusionData[other].Add(new CollusionData(actutorId, other));
+
   }
 
 }
 
 
 [System.Serializable]
-public class AlertData
+public class CollusionData
 {
-    public int actutorId;
-    public float timestamp;
-    public float duration;
+  public int actutorId;
+  public float timestamp;
+  public float duration;
 
-  public AlertData(int actutorId)
+  public string other;
+
+  public CollusionData(int actutorId, string other)
   {
-        this.actutorId = actutorId;
-        this.timestamp = Time.time;
+    this.actutorId = actutorId;
+    this.timestamp = Time.time;
+    this.other = other;
   }
-    
-  public void CalculateAlertDuration()
-    {
-        this.duration = Time.time - this.timestamp;
-    } 
+
+  public void CalculateCollusionDuration()
+  {
+    this.duration = Time.time - this.timestamp;
+  }
 }

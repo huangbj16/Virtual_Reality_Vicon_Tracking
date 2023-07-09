@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.IO;
 
 public class ShapeGenerator : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class ShapeGenerator : MonoBehaviour
   public int currentShapeCount = 0;
   // this will control the game
   public bool pause = true;
+  public string username = "user";
 
   // Start is called before the first frame update
   void Start()
@@ -31,7 +33,7 @@ public class ShapeGenerator : MonoBehaviour
     shapeObjects = new List<GameObject>();
     shapeRandomIndexs = new List<int>();
     // set mode to practice by default
-    setModeAndResetGame(ShapeGeneratorConstants.PRACTICE_MODE);
+    SetMode(ShapeGeneratorConstants.PRACTICE_MODE);
   }
 
   // Update is called once per frame
@@ -49,7 +51,7 @@ public class ShapeGenerator : MonoBehaviour
     }
     else if (currentShapeCount == currentConfig.numberOfShape)
     {
-      resetShapeGeneator();
+      pause = true;
     }
   }
 
@@ -80,29 +82,55 @@ public class ShapeGenerator : MonoBehaviour
     destinationObject.transform.localRotation = Quaternion.identity;
   }
 
-  public void setModeAndResetGame(string mode)
+  public void SetMode(string mode)
   {
-    string configPath = System.IO.Path.Combine(Application.dataPath, "Scripts/OhShape/ShapeGeneratorConfig/" + mode + ".json");
+    shapeRandomIndexs.Clear();
+    string configPath = System.IO.Path.Combine(Application.dataPath, ShapeGeneratorConstants.CONFIG_LOAD_PATH + mode + ".json");
     string configString = System.IO.File.ReadAllText(configPath);
     currentConfig = JsonUtility.FromJson<ShapeGeneratorConfig>(configString);
+  }
+
+  public void ResetGame()
+  {
+    currentShapeCount = 0;
     int shapePrefabLength = shapePrefabs.Length;
-
     int[] rangeToArray = Enumerable.Range(0, shapePrefabLength).ToArray();
-
     for (int i = 0; i < currentConfig.numberOfShape / shapePrefabLength; i++)
     {
-      shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)));
+      shapeRandomIndexs.AddRange(new List<int>(rangeToArray));
     }
-    shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)).Take(currentConfig.numberOfShape % shapePrefabLength));
-    // currentUserData = new UserData()
+    // shapeRandomIndexs.AddRange(Shuffle(new List<int>(rangeToArray)).Take(currentConfig.numberOfShape % shapePrefabLength));
+    Shuffle(shapeRandomIndexs);
+    // init userData HARD-CODE
+    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, 0);
   }
 
-  public void resetShapeGeneator()
+  public void ExportUserData()
   {
-    pause = true;
-    currentShapeCount = 0;
-    shapeRandomIndexs.Clear();
+    string exportFolderPath = System.IO.Path.Combine(Application.dataPath, ShapeGeneratorConstants.USER_DATA_EXPORT_PATH + username);
+    if (!Directory.Exists(exportFolderPath))
+    {
+      Directory.CreateDirectory(exportFolderPath);
+    }
+
+    string jsonData = JsonUtility.ToJson(currentUserData);
+    string filePath = exportFolderPath + "/" + getDateTime() + ".json";
+    File.WriteAllText(filePath, jsonData);
+
   }
+
+  public void StartGame()
+  {
+    ResetGame();
+    ExportUserData();
+    // pause = false;
+  }
+
+  // public void PauseGame()
+  // {
+  //   pause = true;
+  // }
+
 
   List<int> Shuffle(List<int> a)
   {
@@ -120,5 +148,12 @@ public class ShapeGenerator : MonoBehaviour
       a[rnd] = temp;
     }
     return a;
+  }
+
+  string getDateTime()
+  {
+    string theTime = System.DateTime.Now.ToString("hh-mm-ss");
+    string theDate = System.DateTime.Now.ToString("MM-dd-yyyy");
+    return theDate + '-' + theTime;
   }
 }
