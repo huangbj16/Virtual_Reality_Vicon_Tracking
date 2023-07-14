@@ -1471,7 +1471,7 @@ MonoBehaviour:
     e33: 1
   translateVector: {x: -0.1920191, y: 0.015041232, z: 1.5714192}
   leftController: {fileID: 1511756612}
-  converterIsOn: 1
+  converterIsOn: 0
 --- !u!1 &1511756611
 GameObject:
   m_ObjectHideFlags: 0

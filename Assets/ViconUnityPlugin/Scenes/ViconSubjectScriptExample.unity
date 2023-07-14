@@ -651,64 +651,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344edad2a970e9a4a9ce067c065d5d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &506623917677041590
+--- !u!1001 &6892619456506147981
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6009747150137919446, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
+      propertyPath: m_Name
+      value: ViconMale_v2_with_motor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 39787726097530455, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6353797998770871660, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 506623917749115181, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+    - target: {fileID: 6892619456674200086, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: Client
       value: 
       objectReference: {fileID: 992756825}
-    - target: {fileID: 848517404664718573, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
-      propertyPath: m_Name
-      value: ViconMale_v2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1e2058af7456af04e86f933d94a4f3a6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}

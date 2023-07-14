@@ -127,7 +127,7 @@ public class ShapeGenerator : MonoBehaviour
   {
     ResetGame();
     ExportUserData();
-    // pause = false;
+    pause = false;
   }
 
   // public void PauseGame()

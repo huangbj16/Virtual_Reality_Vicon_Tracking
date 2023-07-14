@@ -31,7 +31,7 @@ public class HapticMotor : MonoBehaviour
     visualEffect = GetComponent<VisualEffect>();
     senderObject = GameObject.Find("TCPSenderObject");
     sender = senderObject.GetComponent<TcpSender>();
-    command = new Dictionary<string, int>
+    command = new Dictionary<string, int>()
         {
             { "addr", motor_id },
             { "mode", 0 },
@@ -107,13 +107,21 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    Debug.Log("collision starts with " + other.name);
-    StartVibrate(other.name);
+    if (other.transform.GetComponent<ShapeObject>() != null)
+        {
+            Debug.Log("collision starts with " + other.name);
+            StartVibrate(other.name);
+        }
   }
 
   void OnTriggerExit(Collider other)
   {
-    Debug.Log("collision ends with " + other.name);
-    StopVibrate();
+        if (other.transform.GetComponent<ShapeObject>() != null)
+        {
+
+            Debug.Log("collision ends with " + other.name);
+            StopVibrate();
+        }
+
   }
 }
