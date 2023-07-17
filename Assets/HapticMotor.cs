@@ -30,7 +30,7 @@ public class HapticMotor : MonoBehaviour
   {
     visualEffect = GetComponent<VisualEffect>();
     senderObject = GameObject.Find("TCPSenderObject");
-    sender = senderObject.GetComponent<TcpSender>();
+    // sender = senderObject.GetComponent<TcpSender>();
     command = new Dictionary<string, int>()
         {
             { "addr", motor_id },
@@ -66,7 +66,7 @@ public class HapticMotor : MonoBehaviour
     command["mode"] = 1;
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
-    sender.SendData(commandString);
+    // sender.SendData(commandString);
     collusionData = new CollusionData(motor_id, other);
   }
 
@@ -90,7 +90,7 @@ public class HapticMotor : MonoBehaviour
     command["mode"] = 0;
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
-    sender.SendData(commandString);
+    // sender.SendData(commandString);
     collusionData.CalculateCollusionDuration();
     // add event handler to trigger ohshape generator
   }
@@ -107,21 +107,23 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    if (other.transform.GetComponent<ShapeObject>() != null)
-        {
-            Debug.Log("collision starts with " + other.name);
-            StartVibrate(other.name);
-        }
+    Debug.Log("enter");
+    if (other.transform.parent.GetComponent<ShapeObject>() != null)
+    {
+      Debug.Log("collision starts with " + other.transform.parent.name);
+      StartVibrate(other.name);
+    }
   }
 
   void OnTriggerExit(Collider other)
   {
-        if (other.transform.GetComponent<ShapeObject>() != null)
-        {
+    Debug.Log("exit");
+    if (other.transform.parent.GetComponent<ShapeObject>() != null)
+    {
 
-            Debug.Log("collision ends with " + other.name);
-            StopVibrate();
-        }
+      Debug.Log("collision ends with " + other.transform.parent.name);
+      StopVibrate();
+    }
 
   }
 }
