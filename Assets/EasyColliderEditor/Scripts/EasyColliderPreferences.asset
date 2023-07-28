@@ -3,15 +3,16 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb5e4193615d8464a82ea935f90494a0, type: 3}
   m_Name: EasyColliderPreferences
   m_EditorClassIdentifier: 
-  VHACDResFloat: 13.287712
+  VHACDResFloat: 16.965784
   AutoSelectOnPrefabOpen: 0
   AutoIncludeChildSkinnedMeshes: 1
   AutoSkinnedForce256Triangles: 1
@@ -30,15 +31,15 @@ MonoBehaviour:
   AutoSkinnedDepenetrateOrder: 3
   BoxSelectPlusKey: 97
   BoxSelectMinusKey: 115
-  CapsuleColliderMethod: 1
+  CapsuleColliderMethod: 0
   CommonScalingMultiplier: 1
   DefaultScale: 0.01
   ColliderHolder: 0
   CreateFromPreviewKey: 96
   CylinderAsCapsuleOrientation: 0
-  CylinderNumberOfSides: 16
+  CylinderNumberOfSides: 27
   CylinderOrientation: 0
-  CylinderRotationOffset: 0
+  CylinderRotationOffset: 35
   DisplayTips: 1
   DisplayAllVertices: 0
   DisplayVerticesColour: {r: 0, g: 0, b: 1, a: 1}
@@ -60,10 +61,10 @@ MonoBehaviour:
   RotatedColliderPivotAtCenter: 0
   rotatedDupeSettings:
     enabled: 0
-    axis: 0
-    NumberOfDuplications: 4
-    StartRotation: 0
-    EndRotation: 360
+    axis: 1
+    NumberOfDuplications: 77
+    StartRotation: -68
+    EndRotation: -79
     pivot: {fileID: 0}
     attachTo: {fileID: 0}
   SaveConvexHullAsAsset: 1
@@ -77,13 +78,13 @@ MonoBehaviour:
   ShortcutClear: 99
   ShortcutRing: 114
   ShowSelectedVertexCount: 0
-  SphereColliderMethod: 2
+  SphereColliderMethod: 0
   UseFixedGizmoScale: 1
   UseMouseClickSelection: 1
   VertexNormalOffsetType: 2
   VertexNormalOffset: 0
   VertexNormalInset: 0
-  VertexSnapMethod: 2
+  VertexSnapMethod: 1
   VertSelectKeyCode: 118
   VHACDPreview: 1
   CurrentWindowTab: 2
