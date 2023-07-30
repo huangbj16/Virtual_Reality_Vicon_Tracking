@@ -52,9 +52,9 @@ public class TcpSender : MonoBehaviour
             client.Connect(Host, Port);
             stream = client.GetStream();
             writer = new StreamWriter(stream);
-            Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes("1");
-            client.GetStream().Write(sendBytes, 0, sendBytes.Length);
-            Debug.Log("socket is sent");
+            //Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes("1");
+            //client.GetStream().Write(sendBytes, 0, sendBytes.Length);
+            //Debug.Log("socket is sent");
             return true;
         }
         catch (Exception e)

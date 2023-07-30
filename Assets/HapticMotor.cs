@@ -30,14 +30,14 @@ public class HapticMotor : MonoBehaviour
   {
     visualEffect = GetComponent<VisualEffect>();
     senderObject = GameObject.Find("TCPSenderObject");
-    // sender = senderObject.GetComponent<TcpSender>();
+    sender = senderObject.GetComponent<TcpSender>();
     command = new Dictionary<string, int>()
         {
             { "addr", motor_id },
             { "mode", 0 },
-            { "duty", 3 },
+            { "duty", 15 },
             { "freq", 2 },
-            { "wave", 1 }
+            { "wave", 0 }
         };
   }
 
@@ -66,7 +66,7 @@ public class HapticMotor : MonoBehaviour
     command["mode"] = 1;
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
-    // sender.SendData(commandString);
+    sender.SendData(commandString);
     collusionData = new CollusionData(motor_id, other);
   }
 
@@ -90,7 +90,7 @@ public class HapticMotor : MonoBehaviour
     command["mode"] = 0;
     string commandString = DictionaryToString(command);
     Debug.Log(commandString);
-    // sender.SendData(commandString);
+    sender.SendData(commandString);
     collusionData.CalculateCollusionDuration();
     // add event handler to trigger ohshape generator
   }
@@ -107,7 +107,8 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    Debug.Log("enter");
+    Debug.Log("enter " + other.name  );
+    
     if (other.transform.parent.GetComponent<ShapeObject>() != null)
     {
       Debug.Log("collision starts with " + other.transform.parent.name);
