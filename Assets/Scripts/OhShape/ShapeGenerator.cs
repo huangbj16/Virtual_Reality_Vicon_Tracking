@@ -61,7 +61,7 @@ public class ShapeGenerator : MonoBehaviour
     GameObject shapeToBuild = shapePrefabs[shapeIndex];
     GameObject newShape = Instantiate(shapeToBuild, Vector3.zero, Quaternion.identity) as GameObject;
     newShape.transform.SetParent(transform);
-    newShape.GetComponent<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
+    newShape.GetComponentInChildren<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
     shapeObjects.Add(newShape);
   }
 
@@ -71,7 +71,7 @@ public class ShapeGenerator : MonoBehaviour
     ResetDestination();
     foreach (GameObject shape in shapeObjects)
     {
-      shape.GetComponent<ShapeObject>().Reset(shape.transform.localPosition, shape.transform.localRotation, movementSpeed);
+      shape.GetComponentInChildren<ShapeObject>().Reset(shape.transform.localPosition, shape.transform.localRotation, movementSpeed);
     }
   }
 
