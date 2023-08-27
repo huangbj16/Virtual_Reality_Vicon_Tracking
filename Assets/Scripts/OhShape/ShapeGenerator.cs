@@ -64,6 +64,7 @@ public class ShapeGenerator : MonoBehaviour
     GameObject newShape = Instantiate(shapeToBuild, Vector3.zero, Quaternion.identity) as GameObject;
     newShape.name = "shape" + currentShapeCount.ToString();
     newShape.transform.SetParent(transform);
+    newShape.transform.localPosition = Vector3.zero;
     newShape.GetComponentInChildren<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
     shapeObjects.Add(newShape);
   }

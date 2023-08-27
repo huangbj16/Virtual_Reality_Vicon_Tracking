@@ -66,12 +66,12 @@ public class HapticMotor : MonoBehaviour
       // visualEffect.Play();
       visualEffect.enabled = true;
     }
-    // // send TCP command
-    // Debug.Log("Send start command to PORT:9051");
-    // command["mode"] = 1;
-    // string commandString = DictionaryToString(command);
-    // Debug.Log(commandString);
-    // sender.SendData(commandString);
+    // send TCP command
+    Debug.Log("Send start command to PORT:9051");
+    command["mode"] = 1;
+    string commandString = DictionaryToString(command);
+    Debug.Log(commandString);
+    sender.SendData(commandString);
     collusionData = new CollusionData(motor_id, other);
   }
 
@@ -90,12 +90,12 @@ public class HapticMotor : MonoBehaviour
       // visualEffect.Stop();
       visualEffect.enabled = false;
     }
-    // //send TCP command
-    // Debug.Log("Send stop command to PORT:9051");
-    // command["mode"] = 0;
-    // string commandString = DictionaryToString(command);
-    // Debug.Log(commandString);
-    // sender.SendData(commandString);
+    //send TCP command
+    Debug.Log("Send stop command to PORT:9051");
+    command["mode"] = 0;
+    string commandString = DictionaryToString(command);
+    Debug.Log(commandString);
+    sender.SendData(commandString);
     collusionData.CalculateCollusionDuration();
     Debug.Log(collusionData.actutorId + ": " + other);
     shapeGenerator.currentUserData.TriggerAlert(collusionData);
