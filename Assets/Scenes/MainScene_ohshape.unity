@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5209945251484222429, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222430, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2369,7 +2373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3042660353413534287, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3042660353413534287, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2406,6 +2410,10 @@ PrefabInstance:
     - target: {fileID: 3042660353413534287, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453914791698185012, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
+      propertyPath: motor_id
+      value: 88
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
@@ -4588,6 +4596,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050043072116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4609,6 +4618,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050049685528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,6 +4640,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050051637388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4651,6 +4662,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050073010753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4672,6 +4684,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050092631714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4693,6 +4706,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050123819172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4714,6 +4728,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050145643449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4735,6 +4750,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050147763396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4756,6 +4772,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050156062087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4777,6 +4794,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050161324006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4798,6 +4816,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050164808339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4819,6 +4838,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050199075725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,6 +4860,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050253994241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,6 +4882,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050362428868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,6 +4904,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050376441437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4903,6 +4926,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050406647646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4924,6 +4948,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050410097203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4945,6 +4970,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050416780484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4966,6 +4992,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050439513858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4987,6 +5014,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050448827955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5008,6 +5036,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050465047134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5029,6 +5058,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050476732468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,6 +5080,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050610040123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5071,6 +5102,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050651054543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5092,6 +5124,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050657238705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5113,6 +5146,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050670240763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5134,6 +5168,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050681125099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5155,6 +5190,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050687964688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5176,6 +5212,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050695205451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5197,6 +5234,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050699398085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5218,6 +5256,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050733810680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5239,6 +5278,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050747683229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5260,6 +5300,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050754313483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5281,6 +5322,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050779891685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5302,6 +5344,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050797819555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5323,6 +5366,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050843995982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5344,6 +5388,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050853525893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5365,6 +5410,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050855592949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5386,6 +5432,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050914134707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5407,6 +5454,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050927404373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5428,6 +5476,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050940373004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5449,6 +5498,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147050983722840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5470,6 +5520,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051006665663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5491,6 +5542,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051033292393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5512,6 +5564,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051062487320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,6 +5586,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051095664830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5554,6 +5608,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051114799326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5575,6 +5630,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051199508662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5596,6 +5652,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051205965145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5617,6 +5674,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051272611718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5638,6 +5696,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051276251030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5659,6 +5718,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051359941166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5680,6 +5740,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051381918882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5701,6 +5762,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051406840638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5722,6 +5784,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051492066068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5743,6 +5806,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051516010607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5764,6 +5828,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051520033144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5785,6 +5850,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051551547197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5806,6 +5872,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051640785709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5827,6 +5894,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051667860954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5848,6 +5916,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051732983577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5869,6 +5938,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051755604926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5890,6 +5960,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051766438749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5911,6 +5982,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051773461712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5932,6 +6004,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051773886708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5953,6 +6026,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051775421683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5974,6 +6048,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051779586270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5995,6 +6070,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051795699311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6016,6 +6092,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051800010493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6037,6 +6114,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051876788509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6058,6 +6136,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051902154428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6079,6 +6158,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051958551995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6100,6 +6180,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051969231623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6121,6 +6202,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051990019961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6142,6 +6224,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147051991924765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6163,6 +6246,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147052054383009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6184,6 +6268,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147052064572465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6205,6 +6290,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147052083301991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6226,6 +6312,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!114 &3646147052096054197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6247,6 +6334,7 @@ MonoBehaviour:
     timestamp: 0
     duration: 0
     other: 
+  shapeGenerator: {fileID: 0}
 --- !u!4 &3661109495301868945
 Transform:
   m_ObjectHideFlags: 0

@@ -26,8 +26,13 @@ public class HapticMotor : MonoBehaviour
 
   public CollusionData collusionData;
 
+  public ShapeGenerator shapeGenerator;
+
+
   void Start()
   {
+
+    shapeGenerator = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShapeGenerator>();
     visualEffect = GetComponent<VisualEffect>();
     senderObject = GameObject.Find("TCPSenderObject");
     sender = senderObject.GetComponent<TcpSender>();
@@ -61,12 +66,12 @@ public class HapticMotor : MonoBehaviour
       // visualEffect.Play();
       visualEffect.enabled = true;
     }
-    // send TCP command
-    Debug.Log("Send start command to PORT:9051");
-    command["mode"] = 1;
-    string commandString = DictionaryToString(command);
-    Debug.Log(commandString);
-    sender.SendData(commandString);
+    // // send TCP command
+    // Debug.Log("Send start command to PORT:9051");
+    // command["mode"] = 1;
+    // string commandString = DictionaryToString(command);
+    // Debug.Log(commandString);
+    // sender.SendData(commandString);
     collusionData = new CollusionData(motor_id, other);
   }
 
@@ -76,7 +81,7 @@ public class HapticMotor : MonoBehaviour
 
   }
 
-  public void StopVibrate()
+  public void StopVibrate(string other)
   {
     // stop visual effect if exists
     if (visualEffect != null)
@@ -85,13 +90,15 @@ public class HapticMotor : MonoBehaviour
       // visualEffect.Stop();
       visualEffect.enabled = false;
     }
-    //send TCP command
-    Debug.Log("Send stop command to PORT:9051");
-    command["mode"] = 0;
-    string commandString = DictionaryToString(command);
-    Debug.Log(commandString);
-    sender.SendData(commandString);
+    // //send TCP command
+    // Debug.Log("Send stop command to PORT:9051");
+    // command["mode"] = 0;
+    // string commandString = DictionaryToString(command);
+    // Debug.Log(commandString);
+    // sender.SendData(commandString);
     collusionData.CalculateCollusionDuration();
+    Debug.Log(collusionData.actutorId + ": " + other);
+    shapeGenerator.currentUserData.TriggerAlert(collusionData);
     // add event handler to trigger ohshape generator
   }
 
@@ -107,12 +114,12 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    Debug.Log("enter " + other.name  );
-    
+    Debug.Log("enter " + other.name + ", " + other.transform.parent.parent.name);
+
     if (other.transform.parent.GetComponent<ShapeObject>() != null)
     {
-      Debug.Log("collision starts with " + other.transform.parent.name);
-      StartVibrate(other.name);
+      Debug.Log("collision starts with " + other.transform.parent.parent.name);
+      StartVibrate(other.transform.parent.parent.name);
     }
   }
 
@@ -122,8 +129,8 @@ public class HapticMotor : MonoBehaviour
     if (other.transform.parent.GetComponent<ShapeObject>() != null)
     {
 
-      Debug.Log("collision ends with " + other.transform.parent.name);
-      StopVibrate();
+      Debug.Log("collision ends with " + other.transform.parent.parent.name);
+      StopVibrate(other.transform.parent.parent.name);
     }
 
   }

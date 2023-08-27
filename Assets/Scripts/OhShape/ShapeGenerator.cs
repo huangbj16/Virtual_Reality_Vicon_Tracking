@@ -16,13 +16,14 @@ public class ShapeGenerator : MonoBehaviour
   private List<int> shapeRandomIndexs;
   GameObject destinationObject;
 
-  UserData currentUserData;
+  public UserData currentUserData;
 
   // game info
   public int currentShapeCount = 0;
   // this will control the game
   public bool pause = true;
   public string username = "user";
+  public int roundNumber = 0;
 
   // Start is called before the first frame update
   void Start()
@@ -49,9 +50,10 @@ public class ShapeGenerator : MonoBehaviour
         previousTimeStamp = Time.time;
       }
     }
-    else if (currentShapeCount == currentConfig.numberOfShapes)
+    else if (currentShapeCount == currentConfig.numberOfShapes && pause == false)
     {
       pause = true;
+      ExportUserData();
     }
   }
 
@@ -60,6 +62,7 @@ public class ShapeGenerator : MonoBehaviour
     int shapeIndex = shapeRandomIndexs[currentShapeCount];
     GameObject shapeToBuild = shapePrefabs[shapeIndex];
     GameObject newShape = Instantiate(shapeToBuild, Vector3.zero, Quaternion.identity) as GameObject;
+    newShape.name = "shape" + currentShapeCount.ToString();
     newShape.transform.SetParent(transform);
     newShape.GetComponentInChildren<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
     shapeObjects.Add(newShape);
@@ -101,7 +104,7 @@ public class ShapeGenerator : MonoBehaviour
     }
     Shuffle(shapeRandomIndexs);
     // init userData HARD-CODE
-    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, 0);
+    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, roundNumber);
   }
 
   public void ExportUserData()
@@ -112,10 +115,6 @@ public class ShapeGenerator : MonoBehaviour
       Directory.CreateDirectory(exportFolderPath);
     }
 
-    List<CollusionData> testData = new List<CollusionData>();
-    testData.Add(new CollusionData(1, "wall1"));
-    currentUserData.collusionData["1"] = testData;
-    currentUserData.collusionData["2"] = testData;
     currentUserData.ToObject();
     string jsonData = JsonUtility.ToJson(currentUserData);
     string filePath = exportFolderPath + "/" + getDateTime() + ".json";
@@ -126,9 +125,9 @@ public class ShapeGenerator : MonoBehaviour
   public void StartGame()
   {
     ResetGame();
-    ExportUserData();
     pause = false;
   }
+
 
   // public void PauseGame()
   // {
