@@ -1,0 +1,126 @@
+{
+  "userId": "user",
+  "date": "08-26-2023-10-04-08",
+  "gameName": "OhShape",
+  "mode": "PRACTICE",
+  "numberOfRounds": 1,
+  "numberOfShapes": 8,
+  "roundNumber": 0,
+  "numberOfCollusions": 19,
+  "collusions": [
+    {
+      "actutorId": 88,
+      "timestamp": 4.949999809265137,
+      "duration": 1.1399998664855958,
+      "other": "shape0"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 4.949999809265137,
+      "duration": 1.1399998664855958,
+      "other": "shape0"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 4.949999809265137,
+      "duration": 1.1399998664855958,
+      "other": "shape0"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 7.96999979019165,
+      "duration": 1.1399998664855958,
+      "other": "shape1"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 7.96999979019165,
+      "duration": 1.1399998664855958,
+      "other": "shape1"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 7.96999979019165,
+      "duration": 1.1399998664855958,
+      "other": "shape1"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 11.0,
+      "duration": 1.1599998474121094,
+      "other": "shape2"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 11.0,
+      "duration": 1.1599998474121094,
+      "other": "shape2"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 11.0,
+      "duration": 1.1599998474121094,
+      "other": "shape2"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 14.019999504089356,
+      "duration": 1.1100006103515626,
+      "other": "shape3"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 14.019999504089356,
+      "duration": 1.1100006103515626,
+      "other": "shape3"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 14.019999504089356,
+      "duration": 1.1100006103515626,
+      "other": "shape3"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 16.989999771118165,
+      "duration": 1.1700000762939454,
+      "other": "shape4"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 16.989999771118165,
+      "duration": 1.1700000762939454,
+      "other": "shape4"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 16.989999771118165,
+      "duration": 1.1700000762939454,
+      "other": "shape4"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 20.03999900817871,
+      "duration": 1.1900005340576172,
+      "other": "shape5"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 20.03999900817871,
+      "duration": 1.1900005340576172,
+      "other": "shape5"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 20.03999900817871,
+      "duration": 1.1900005340576172,
+      "other": "shape5"
+    },
+    {
+      "actutorId": 88,
+      "timestamp": 23.059999465942384,
+      "duration": 1.0799999237060547,
+      "other": "shape6"
+    }
+  ]
+}

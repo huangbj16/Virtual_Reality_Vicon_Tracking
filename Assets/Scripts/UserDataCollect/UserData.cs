@@ -33,13 +33,14 @@ public class UserData
     this.collusions = new List<CollusionData>();
   }
 
-  public void TriggerAlert(int actutorId, string other)
+  public void TriggerAlert(CollusionData collusionData)
   {
-    if (!this.collusionData.ContainsKey(other))
+
+    if (!this.collusionData.ContainsKey(collusionData.other))
     {
-      this.collusionData[other] = new List<CollusionData>();
+      this.collusionData[collusionData.other] = new List<CollusionData>();
     }
-    this.collusionData[other].Add(new CollusionData(actutorId, other));
+    this.collusionData[collusionData.other].Add(collusionData);
 
     numberOfCollusions += 1;
 
@@ -63,7 +64,6 @@ public class CollusionData
   public int actutorId;
   public float timestamp;
   public float duration;
-
   public string other;
 
   public CollusionData(int actutorId, string other)

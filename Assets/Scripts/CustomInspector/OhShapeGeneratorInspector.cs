@@ -63,6 +63,12 @@ public class OhShapeGeneratorInspector : Editor
       ohShapeGenerator.StartGame();
     }
 
+    if (GUILayout.Button("Export Data", modeButtonLayout))
+    {
+      ohShapeGenerator.ExportUserData();
+    }
+
+
     // if (GUILayout.Button("Pause", modeButtonLayout))
     // {
     //   ohShapeGenerator.PauseGame();
