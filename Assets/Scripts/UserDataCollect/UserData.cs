@@ -33,14 +33,15 @@ public class UserData
     this.collusions = new List<CollusionData>();
   }
 
-  public void TriggerAlert(CollusionData collusionData)
+  public void TriggerAlert(CollusionData data)
   {
-
-    if (!this.collusionData.ContainsKey(collusionData.other))
+        Debug.Log("collusionData = "+this.collusionData);
+        Debug.Log("data other = "+data.other);
+    if (!this.collusionData.ContainsKey(data.other))
     {
-      this.collusionData[collusionData.other] = new List<CollusionData>();
+      this.collusionData[data.other] = new List<CollusionData>();
     }
-    this.collusionData[collusionData.other].Add(collusionData);
+    this.collusionData[data.other].Add(data);
 
     numberOfCollusions += 1;
 
@@ -48,7 +49,7 @@ public class UserData
 
   public void ToObject()
   {
-    foreach (KeyValuePair<string, List<CollusionData>> pair in collusionData)
+    foreach (KeyValuePair<string, List<CollusionData>> pair in this.collusionData)
     {
       this.collusions.AddRange(pair.Value);
     }

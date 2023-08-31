@@ -35,7 +35,8 @@ public class ShapeGenerator : MonoBehaviour
     shapeRandomIndexs = new List<int>();
     // set mode to practice by default
     SetMode(ShapeGeneratorConstants.PRACTICE_MODE);
-  }
+    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, roundNumber);
+    }
 
   // Update is called once per frame
   void Update()
