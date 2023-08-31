@@ -9,8 +9,7 @@ public class PlaneReflection : MonoBehaviour
 
   private void LateUpdate()
   {
-    reflectionCamera.transform.position = new Vector3(Camera.main.transform.position.x, -Camera.main.transform.position.y + transform.position.y, Camera.main.transform.position.z);
-    reflectionCamera.transform.rotation = Quaternion.Euler(-Camera.main.transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, 0f);
+    reflectionCamera.transform.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x, Camera.main.transform.eulerAngles.y + 180, Camera.main.transform.eulerAngles.z);
   }
 
 }
