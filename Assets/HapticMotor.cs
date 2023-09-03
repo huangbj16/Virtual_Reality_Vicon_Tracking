@@ -69,7 +69,7 @@ public class HapticMotor : MonoBehaviour
     // send TCP command
     Debug.Log("Send start command to PORT:9051");
     command["mode"] = 1;
-    string commandString = DictionaryToString(command);
+    string commandString = DictionaryToString(command) + "\n";
     Debug.Log(commandString);
     sender.SendData(commandString);
     collusionData = new CollusionData(motor_id, other);
@@ -93,7 +93,7 @@ public class HapticMotor : MonoBehaviour
     //send TCP command
     Debug.Log("Send stop command to PORT:9051");
     command["mode"] = 0;
-    string commandString = DictionaryToString(command);
+    string commandString = DictionaryToString(command) + "\n";
     Debug.Log(commandString);
     sender.SendData(commandString);
     collusionData.CalculateCollusionDuration();

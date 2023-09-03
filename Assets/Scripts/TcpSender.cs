@@ -24,6 +24,7 @@ public class TcpSender : MonoBehaviour
         {
             isConnected = true;
             Debug.Log("socket is set up");
+            Debug.Log("buffer size length = "+client.SendBufferSize);
         }
         else
         {
@@ -41,7 +42,8 @@ public class TcpSender : MonoBehaviour
     public void SendData(String data)
     {
         Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes(data);
-        client.GetStream().Write(sendBytes, 0, sendBytes.Length);
+        stream.Write(sendBytes, 0, sendBytes.Length);
+        stream.Flush();
         Debug.Log("socket is sent");
     }
 
@@ -50,8 +52,10 @@ public class TcpSender : MonoBehaviour
         try
         {
             client.Connect(Host, Port);
+            client.SendBufferSize = 512;
+            client.ReceiveBufferSize = 512;
             stream = client.GetStream();
-            writer = new StreamWriter(stream);
+            //writer = new StreamWriter(stream);
             //Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes("1");
             //client.GetStream().Write(sendBytes, 0, sendBytes.Length);
             //Debug.Log("socket is sent");
