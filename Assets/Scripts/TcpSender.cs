@@ -43,7 +43,7 @@ public class TcpSender : MonoBehaviour
     {
         Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes(data);
         stream.Write(sendBytes, 0, sendBytes.Length);
-        stream.Flush();
+        //stream.Flush();
         Debug.Log("socket is sent");
     }
 
