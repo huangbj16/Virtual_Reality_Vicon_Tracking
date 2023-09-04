@@ -96,7 +96,7 @@ public class HapticMotor : MonoBehaviour
     string commandString = DictionaryToString(command) + "\n";
     Debug.Log(commandString);
     sender.SendData(commandString);
-    sender.SendData(commandString);
+    //sender.SendData(commandString);
     collusionData.CalculateCollusionDuration();
     Debug.Log(collusionData.actutorId + ": " + other);
     shapeGenerator.currentUserData.TriggerAlert(collusionData);

@@ -44,13 +44,13 @@ public class ViconUnityTransformConverter : MonoBehaviour
             Transform hips = viconTransform.FindChildRecursive("Hips");
       
             unityTransform = hips.GetComponent<GetUnityTransform>().unityTransform;
-            
-            ApplyRotationToChild(hips, unityTransform, coordinatesRotationMatrix);
 
             Matrix4x4 oldRotation = Matrix4x4.TRS(Vector3.zero, viconTransform.rotation, Vector3.one);
             Matrix4x4 combinedMatrix = coordinatesRotationMatrix * oldRotation;
             unityTransform.rotation = Quaternion.LookRotation(combinedMatrix.GetColumn(2), combinedMatrix.GetColumn(1));
             unityTransform.position = coordinatesRotationMatrix.MultiplyPoint3x4(hips.position) + translateVector;
+
+            ApplyRotationToChild(hips, unityTransform, coordinatesRotationMatrix);
 
         }
         else
