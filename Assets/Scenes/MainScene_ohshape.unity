@@ -707,7 +707,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: username
-      value: bingjian
+      value: connor
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: timeEscape
@@ -2148,23 +2148,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollection: {fileID: 341366365}
   coordinatesRotationMatrix:
-    e00: 0.3611113
-    e01: -0.9150349
-    e02: 0.008625696
+    e00: 0.8471226
+    e01: -0.5248093
+    e02: 0.0037353882
     e03: 0
-    e10: 0.0065731835
-    e11: 0.0156022925
-    e12: 1.0041194
+    e10: 0.0007893073
+    e11: -0.00049635966
+    e12: 1.0044442
     e13: 0
-    e20: -0.93248487
-    e21: -0.35535464
-    e22: 0.0063490574
+    e20: -0.52031076
+    e21: -0.8516306
+    e22: -0.008775769
     e23: 0
     e30: 0
     e31: 0
     e32: 0
     e33: 1
-  translateVector: {x: -0.11961573, y: 0.042810798, z: -0.027321398}
+  translateVector: {x: -0.55661994, y: -0.20991617, z: -0.66899943}
   leftController: {fileID: 1511756612}
   converterIsOn: 1
 --- !u!1 &1511756611
@@ -2286,6 +2286,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 945453282}
     m_Modifications:
+    - target: {fileID: 47086873458750399, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 924730904481862508, guid: 9fe6f8a4cfcae7a458b1e127228be0eb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2631,6 +2635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2377678898046858952, guid: 2a9e6c7f83f3402418ff2e35a384d509, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a9e6c7f83f3402418ff2e35a384d509, type: 3}
       propertyPath: m_Name
       value: bingjian
@@ -2659,7 +2667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00898c33756f94caafd87ca8fda2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubjectName: bingjian
+  SubjectName: connor
   Client: {fileID: 179435078}
 --- !u!1 &1930719889 stripped
 GameObject:
