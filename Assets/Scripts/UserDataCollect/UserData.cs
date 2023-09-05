@@ -15,9 +15,7 @@ public class UserData
 
   public int numberOfCollusions;
 
-  public Dictionary<string, List<CollusionData>> collusionData;
-
-  public List<CollusionData> collusions;
+  public List<CollusionData> collusionData;
 
   public UserData(string userId, string date, string gameName, ShapeGeneratorConfig gameConfig, int roundNumber)
   {
@@ -29,30 +27,15 @@ public class UserData
     this.numberOfShapes = gameConfig.numberOfShapes;
     this.roundNumber = roundNumber;
     this.numberOfCollusions = 0;
-    this.collusionData = new Dictionary<string, List<CollusionData>>();
-    this.collusions = new List<CollusionData>();
+    this.collusionData = new List<CollusionData>();
   }
 
   public void TriggerAlert(CollusionData data)
   {
-        Debug.Log("collusionData = "+this.collusionData);
         Debug.Log("data other = "+data.other);
-    if (!this.collusionData.ContainsKey(data.other))
-    {
-      this.collusionData[data.other] = new List<CollusionData>();
-    }
-    this.collusionData[data.other].Add(data);
+        this.collusionData.Add(data);
 
     numberOfCollusions += 1;
-
-  }
-
-  public void ToObject()
-  {
-    foreach (KeyValuePair<string, List<CollusionData>> pair in this.collusionData)
-    {
-      this.collusions.AddRange(pair.Value);
-    }
 
   }
 

@@ -116,7 +116,7 @@ public class ShapeGenerator : MonoBehaviour
       Directory.CreateDirectory(exportFolderPath);
     }
 
-    currentUserData.ToObject();
+
     string jsonData = JsonUtility.ToJson(currentUserData);
     string filePath = exportFolderPath + "/" + getDateTime() + ".json";
     File.WriteAllText(filePath, jsonData);
