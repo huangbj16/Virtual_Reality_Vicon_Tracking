@@ -116,7 +116,7 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-
+    // TODO: check if is haptic mode
 
     if (other.transform.parent && other.transform.parent.GetComponent<ShapeObject>() != null)
     {
@@ -126,8 +126,12 @@ public class HapticMotor : MonoBehaviour
   }
 
   void OnTriggerExit(Collider other)
+
   {
-    Debug.Log("exit");
+
+   // TODO: check if is haptic mode
+
+        Debug.Log("exit");
     if (other.transform.parent && other.transform.parent.GetComponent<ShapeObject>() != null)
     {
 

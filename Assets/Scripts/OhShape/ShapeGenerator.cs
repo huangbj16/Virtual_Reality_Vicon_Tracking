@@ -92,6 +92,7 @@ public class ShapeGenerator : MonoBehaviour
     string configPath = System.IO.Path.Combine(Application.dataPath, ShapeGeneratorConstants.CONFIG_LOAD_PATH + mode + ".json");
     string configString = System.IO.File.ReadAllText(configPath);
     currentConfig = JsonUtility.FromJson<ShapeGeneratorConfig>(configString);
+    //TODO: trigger directional light on / off
   }
 
   public void ResetGame()
