@@ -24,9 +24,11 @@ public class ShapeGenerator : MonoBehaviour
   public bool pause = true;
   public string username = "user";
   public int roundNumber = 0;
+  public GameObject directionalLight;
+  public TcpSender tcpSender;
 
-  // Start is called before the first frame update
-  void Start()
+    // Start is called before the first frame update
+    void Start()
   {
     destinationObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     ResetDestination();
@@ -88,11 +90,31 @@ public class ShapeGenerator : MonoBehaviour
 
   public void SetMode(string mode)
   {
+    Debug.Log("SetMode to " + mode);
     shapeRandomIndexs.Clear();
     string configPath = System.IO.Path.Combine(Application.dataPath, ShapeGeneratorConstants.CONFIG_LOAD_PATH + mode + ".json");
     string configString = System.IO.File.ReadAllText(configPath);
     currentConfig = JsonUtility.FromJson<ShapeGeneratorConfig>(configString);
     //TODO: trigger directional light on / off
+    switch (mode)
+        {
+            case ShapeGeneratorConstants.PRACTICE_MODE:
+                directionalLight.SetActive(true);
+                tcpSender.SetActiveState(true);
+                break;
+            case ShapeGeneratorConstants.CLEAN_MODE:
+                directionalLight.SetActive(false);
+                tcpSender.SetActiveState(false);
+                break;
+            case ShapeGeneratorConstants.VISUAL_MODE:
+                directionalLight.SetActive(true);
+                tcpSender.SetActiveState(false);
+                break;
+            case ShapeGeneratorConstants.HAPTIC_MODE:
+                directionalLight.SetActive(false);
+                tcpSender.SetActiveState(true);
+                break;
+        }
   }
 
   public void ResetGame()

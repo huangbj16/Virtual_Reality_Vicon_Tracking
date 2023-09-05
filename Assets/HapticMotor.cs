@@ -71,7 +71,7 @@ public class HapticMotor : MonoBehaviour
     command["mode"] = 1;
     string commandString = DictionaryToString(command) + "\n";
     Debug.Log(commandString);
-   // sender.SendData(commandString);
+    sender.SendData(commandString);
     collusionData = new CollusionData(motor_id, other);
   }
 
@@ -95,8 +95,8 @@ public class HapticMotor : MonoBehaviour
     command["mode"] = 0;
     string commandString = DictionaryToString(command) + "\n";
     Debug.Log(commandString);
-    //sender.SendData(commandString);
-    //sender.SendData(commandString);
+    sender.SendData(commandString);
+    sender.SendData(commandString);
     collusionData.detail = detail;
     collusionData.CalculateCollusionDuration();
     Debug.Log(collusionData.actutorId + ": " + other);

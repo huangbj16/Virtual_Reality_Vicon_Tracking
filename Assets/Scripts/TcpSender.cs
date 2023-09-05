@@ -15,6 +15,7 @@ public class TcpSender : MonoBehaviour
     NetworkStream stream = null;
     StreamWriter writer = null;
     public bool isConnected = false;
+    private bool isActiveState = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +40,24 @@ public class TcpSender : MonoBehaviour
 
     }
 
+    public void SetActiveState(bool activeState)
+    {
+        isActiveState = activeState;
+    }
+
     public void SendData(String data)
     {
-        Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes(data);
-        stream.Write(sendBytes, 0, sendBytes.Length);
-        stream.Flush();
-        Debug.Log("socket is sent");
+        if (isActiveState)
+        {
+            Byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes(data);
+            stream.Write(sendBytes, 0, sendBytes.Length);
+            stream.Flush();
+            Debug.Log("socket is sent");
+        }
+        else
+        {
+            Debug.Log("no socket is sent");
+        }
     }
 
     public bool SetupSocket()
