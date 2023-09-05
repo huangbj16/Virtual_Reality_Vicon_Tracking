@@ -54,7 +54,6 @@ public class ShapeGenerator : MonoBehaviour
     else if (currentShapeCount == currentConfig.numberOfShapes && pause == false)
     {
       pause = true;
-      ExportUserData();
     }
   }
 

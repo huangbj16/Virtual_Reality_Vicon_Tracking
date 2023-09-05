@@ -66,12 +66,13 @@ public class CollusionData
   public float timestamp;
   public float duration;
   public string other;
-
+  public string detail;
   public CollusionData(int actutorId, string other)
   {
     this.actutorId = actutorId;
     this.timestamp = Time.time;
     this.other = other;
+    this.detail = other;
   }
 
   public void CalculateCollusionDuration()

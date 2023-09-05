@@ -81,7 +81,7 @@ public class HapticMotor : MonoBehaviour
 
   }
 
-  public void StopVibrate(string other)
+  public void StopVibrate(string other, string detail)
   {
     // stop visual effect if exists
     if (visualEffect != null)
@@ -96,7 +96,8 @@ public class HapticMotor : MonoBehaviour
     string commandString = DictionaryToString(command) + "\n";
     Debug.Log(commandString);
     sender.SendData(commandString);
-    //sender.SendData(commandString);
+    sender.SendData(commandString);
+    collusionData.detail = detail;
     collusionData.CalculateCollusionDuration();
     Debug.Log(collusionData.actutorId + ": " + other);
     shapeGenerator.currentUserData.TriggerAlert(collusionData);
@@ -115,9 +116,9 @@ public class HapticMotor : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    Debug.Log("enter " + other.name + ", " + other.transform.parent.parent.name);
 
-    if (other.transform.parent.GetComponent<ShapeObject>() != null)
+
+    if (other.transform.parent && other.transform.parent.GetComponent<ShapeObject>() != null)
     {
       Debug.Log("collision starts with " + other.transform.parent.parent.name);
       StartVibrate(other.transform.parent.parent.name);
@@ -127,11 +128,11 @@ public class HapticMotor : MonoBehaviour
   void OnTriggerExit(Collider other)
   {
     Debug.Log("exit");
-    if (other.transform.parent.GetComponent<ShapeObject>() != null)
+    if (other.transform.parent && other.transform.parent.GetComponent<ShapeObject>() != null)
     {
 
       Debug.Log("collision ends with " + other.transform.parent.parent.name);
-      StopVibrate(other.transform.parent.parent.name);
+      StopVibrate(other.transform.parent.parent.name, other.transform.name);
     }
 
   }
