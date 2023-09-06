@@ -1,7 +1,7 @@
 import json
 
 # Reading the JSON file
-with open('OhShape/connor/09-05-2023-07-59-07.json', 'r') as file:
+with open('OhShape/connor/09-05-2023-08-33-59.json', 'r') as file:
     data = json.load(file)
 
 """ collision event sample
@@ -35,10 +35,13 @@ print(collision_actuator_array[0], duration_array[0], collision_shape_array[0])
 unique_actuators, actuator_counts = np.unique(collision_actuator_array, return_counts=True)
 unique_shapes, shape_counts = np.unique(collision_shape_array, return_counts=True)
 
+print("===== collision count with actuators =====")
 print(unique_actuators)
 print(actuator_counts)
+print("===== collision count with shapes =====")
 print(unique_shapes)
 print(shape_counts)
+print(np.mean(shape_counts))
 
 # Total duration of collisions for each actuator
 total_duration_per_actuator = {}

@@ -37,7 +37,7 @@ public class ShapeGenerator : MonoBehaviour
     shapeRandomIndexs = new List<int>();
     // set mode to practice by default
     SetMode(ShapeGeneratorConstants.PRACTICE_MODE);
-    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, roundNumber);
+    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, null, roundNumber);
     }
 
   // Update is called once per frame
@@ -128,7 +128,7 @@ public class ShapeGenerator : MonoBehaviour
     }
     Shuffle(shapeRandomIndexs);
     // init userData HARD-CODE
-    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, roundNumber);
+    currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, shapeRandomIndexs.ToArray(), roundNumber);
   }
 
   public void ExportUserData()

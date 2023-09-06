@@ -11,13 +11,14 @@ public class UserData
   public string mode; // PRACTICE, PLAYGROUND, VISUAL_ONLY, HAPTIC
   public int numberOfRounds;
   public int numberOfShapes;
+  public int[] shapeIndexs;
   public int roundNumber;
 
   public int numberOfCollusions;
 
   public List<CollusionData> collusionData;
 
-  public UserData(string userId, string date, string gameName, ShapeGeneratorConfig gameConfig, int roundNumber)
+  public UserData(string userId, string date, string gameName, ShapeGeneratorConfig gameConfig, int[] shapeIndexs, int roundNumber)
   {
     this.userId = userId;
     this.date = date;
@@ -25,6 +26,7 @@ public class UserData
     this.mode = gameConfig.mode;
     this.numberOfRounds = gameConfig.numberOfRounds;
     this.numberOfShapes = gameConfig.numberOfShapes;
+    this.shapeIndexs = shapeIndexs;
     this.roundNumber = roundNumber;
     this.numberOfCollusions = 0;
     this.collusionData = new List<CollusionData>();
