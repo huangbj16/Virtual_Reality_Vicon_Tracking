@@ -310,15 +310,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.14
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6359536
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.41
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1673,7 +1673,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1731,7 +1731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846457190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.175, y: 2.562, z: 0.609}
+  m_LocalPosition: {x: -0.175, y: 2.562, z: -1.119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2303,23 +2303,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollection: {fileID: 341366365}
   coordinatesRotationMatrix:
-    e00: 0.33120063
-    e01: -0.946956
-    e02: -0.0038785387
+    e00: 0.10034158
+    e01: -0.9927747
+    e02: 0.025429184
     e03: 0
-    e10: -0.041475944
-    e11: -0.028807605
-    e12: 0.99232244
+    e10: -0.074986376
+    e11: 0.011337071
+    e12: 0.9962928
     e13: 0
-    e20: -0.9491253
-    e21: -0.35251874
-    e22: 0.009465598
+    e20: -0.99451596
+    e21: -0.10741149
+    e22: -0.0726077
     e23: 0
     e30: 0
     e31: 0
     e32: 0
     e33: 1
-  translateVector: {x: -0.4052974, y: 0.15956628, z: 1.1773623}
+  translateVector: {x: -0.5558572, y: 0.901969, z: -0.08729315}
   leftController: {fileID: 1511756612}
   converterIsOn: 1
 --- !u!1 &1511756611
@@ -2746,6 +2746,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 341366366}
     m_Modifications:
+    - target: {fileID: -8815185846878508407, guid: 2a9e6c7f83f3402418ff2e35a384d509, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a9e6c7f83f3402418ff2e35a384d509, type: 3}
       propertyPath: m_RootOrder
       value: 0
