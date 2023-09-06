@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: username
-      value: user1
+      value: user2
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: tcpSender
@@ -797,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222430, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.09
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222430, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2315,23 +2315,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollection: {fileID: 341366365}
   coordinatesRotationMatrix:
-    e00: 0.26818973
-    e01: -0.9626612
-    e02: -0.0027633333
+    e00: 0.96539235
+    e01: -0.26146322
+    e02: -0.0040073697
     e03: 0
-    e10: 0.0092064
-    e11: 0.0007869028
-    e12: 1.0013785
+    e10: 0.0070949043
+    e11: 0.0037683675
+    e12: 1.0015913
     e13: 0
-    e20: -0.97572047
-    e21: -0.26523542
-    e22: 0.014176278
+    e20: -0.2665325
+    e21: -0.96803963
+    e22: 0.00026797
     e23: 0
     e30: 0
     e31: 0
     e32: 0
     e33: 1
-  translateVector: {x: -1.1922646, y: 0.053577483, z: 0.52203834}
+  translateVector: {x: -0.9992714, y: 0.06410968, z: -1.0925494}
   leftController: {fileID: 1511756612}
   converterIsOn: 1
 --- !u!1 &1511756611
@@ -2838,7 +2838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00898c33756f94caafd87ca8fda2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubjectName: connor
+  SubjectName: user2
   Client: {fileID: 179435078}
 --- !u!1 &1930719889 stripped
 GameObject:
