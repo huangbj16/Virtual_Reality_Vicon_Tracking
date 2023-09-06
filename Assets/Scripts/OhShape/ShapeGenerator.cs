@@ -8,7 +8,8 @@ public class ShapeGenerator : MonoBehaviour
 {
   public float timeEscape = 1.0f;
   public float movementSpeed = 1.0f;
-  public float distance = 5f;
+  public float wallExistTime = 15f;
+  private float distance = 15f;
   public static GameObject[] shapePrefabs;
   public float previousTimeStamp = 0.0f;
   public ShapeGeneratorConfig currentConfig;
@@ -26,6 +27,7 @@ public class ShapeGenerator : MonoBehaviour
   public int roundNumber = 0;
   public GameObject directionalLight;
   public TcpSender tcpSender;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +69,7 @@ public class ShapeGenerator : MonoBehaviour
     newShape.name = "shape" + currentShapeCount.ToString();
     newShape.transform.SetParent(transform);
     newShape.transform.localPosition = Vector3.zero;
-    newShape.GetComponentInChildren<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed);
+    newShape.GetComponentInChildren<ShapeObject>().Initialize(Vector3.zero, Quaternion.identity, speed, wallExistTime);
     shapeObjects.Add(newShape);
   }
 

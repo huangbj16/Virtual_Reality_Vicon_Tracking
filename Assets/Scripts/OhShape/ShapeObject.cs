@@ -14,11 +14,11 @@ public class ShapeObject : MonoBehaviour
 
   private bool initialized = false;
 
-  public void Initialize(Vector3 localPosition, Quaternion localRotation, float speed)
+  public void Initialize(Vector3 localPosition, Quaternion localRotation, float speed, float existTime=10f)
   {
     Reset(localPosition, localRotation, speed);
     initialized = true;
-    Destroy(gameObject, 10f);
+    Destroy(gameObject, existTime);
   }
 
   public void Reset(Vector3 localPosition, Quaternion localRotation, float speed)
