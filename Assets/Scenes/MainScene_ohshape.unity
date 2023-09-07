@@ -322,19 +322,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.010639358
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99994344
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -342,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 178.781
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 775586301248472236, guid: a83a162b918aadc4f8206e1c69ee96e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: username
-      value: user2
+      value: test
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: tcpSender
@@ -4131,7 +4131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5364065215019877177, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5453914791698185012, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
       propertyPath: motor_id

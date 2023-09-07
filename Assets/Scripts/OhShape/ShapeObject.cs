@@ -23,7 +23,7 @@ public class ShapeObject : MonoBehaviour
 
   public void Reset(Vector3 localPosition, Quaternion localRotation, float speed)
   {
-    transform.localRotation = localRotation;
+    // transform.localRotation = localRotation;
     transform.localPosition = localPosition;
     movementSpeed = speed;
     direction = Vector3.forward;

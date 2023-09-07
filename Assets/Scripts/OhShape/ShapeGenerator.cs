@@ -124,11 +124,17 @@ public class ShapeGenerator : MonoBehaviour
     currentShapeCount = 0;
     int shapePrefabLength = shapePrefabs.Length;
     int[] rangeToArray = Enumerable.Range(0, shapePrefabLength).ToArray();
-    for (int i = 0; i < currentConfig.numberOfShapes / shapePrefabLength; i++)
+    // only generate half size, then duplicate.
+    for (int i = 0; i < currentConfig.numberOfShapes / ( shapePrefabLength * 2); i++)
     {
       shapeRandomIndexs.AddRange(new List<int>(rangeToArray));
     }
     Shuffle(shapeRandomIndexs);
+    //duplicate each element for study
+    for (int i = 0; i < (currentConfig.numberOfShapes/2); i++)
+    {
+      shapeRandomIndexs.Insert(2 * i + 1, shapeRandomIndexs[2 * i]);
+    }
     // init userData HARD-CODE
     currentUserData = new UserData(username, getDateTime(), "OhShape", currentConfig, shapeRandomIndexs.ToArray(), roundNumber);
   }
