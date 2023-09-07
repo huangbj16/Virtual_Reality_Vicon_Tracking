@@ -27,6 +27,7 @@ public class ShapeGenerator : MonoBehaviour
   public int roundNumber = 0;
   public GameObject directionalLight;
   public TcpSender tcpSender;
+  public bool isVisualOn = true;
 
 
     // Start is called before the first frame update
@@ -103,18 +104,22 @@ public class ShapeGenerator : MonoBehaviour
             case ShapeGeneratorConstants.PRACTICE_MODE:
                 directionalLight.SetActive(true);
                 tcpSender.SetActiveState(true);
+                isVisualOn = true;
                 break;
             case ShapeGeneratorConstants.CLEAN_MODE:
                 directionalLight.SetActive(false);
                 tcpSender.SetActiveState(false);
+                isVisualOn = false;
                 break;
             case ShapeGeneratorConstants.VISUAL_MODE:
                 directionalLight.SetActive(true);
                 tcpSender.SetActiveState(false);
+                isVisualOn = true;
                 break;
             case ShapeGeneratorConstants.HAPTIC_MODE:
                 directionalLight.SetActive(false);
                 tcpSender.SetActiveState(true);
+                isVisualOn = false;
                 break;
         }
   }

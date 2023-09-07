@@ -4129,6 +4129,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4227402206840228918, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd0bb729cb6159b4ab21c5f62cad24ee, type: 3}
     - target: {fileID: 5364065215019877177, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4141,6 +4145,14 @@ PrefabInstance:
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1425690834}
+    - target: {fileID: 5453914791698185012, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
+      propertyPath: defaultMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bd0bb729cb6159b4ab21c5f62cad24ee, type: 3}
+    - target: {fileID: 5453914791698185012, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
+      propertyPath: highlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d3bd88b568a7e4429116e920dc01237, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f36d647f2b65574298727cdabf72fb2, type: 3}
 --- !u!1 &47696351734549809

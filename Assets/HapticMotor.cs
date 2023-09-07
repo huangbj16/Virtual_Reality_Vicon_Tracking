@@ -24,18 +24,23 @@ public class HapticMotor : MonoBehaviour
 
   public int motor_id = 0;
 
+  private Material highlightMaterial;
+  private Material defaultMaterial;
+
   public CollusionData collusionData;
 
   public ShapeGenerator shapeGenerator;
 
 
-  void Start()
+    void Start()
   {
 
     shapeGenerator = GameObject.FindGameObjectWithTag("GameController").GetComponent<ShapeGenerator>();
     visualEffect = GetComponent<VisualEffect>();
     senderObject = GameObject.Find("TCPSenderObject");
     sender = senderObject.GetComponent<TcpSender>();
+    highlightMaterial = Resources.Load<Material>("Materials/Material_Red");
+    defaultMaterial = GetComponent<Renderer>().material;
     command = new Dictionary<string, int>()
         {
             { "addr", motor_id },
@@ -60,11 +65,17 @@ public class HapticMotor : MonoBehaviour
   {
     isTriggered = true;
     // trigger visual effect if exists
+    /*
     if (visualEffect != null)
     {
-      visualEffect.Reinit();
-      // visualEffect.Play();
-      visualEffect.enabled = true;
+        visualEffect.Reinit();
+        // visualEffect.Play();
+        visualEffect.enabled = true;
+    }
+    */
+    if (shapeGenerator.isVisualOn)
+    {
+        GetComponent<Renderer>().material = highlightMaterial;
     }
     // send TCP command
     Debug.Log("Send start command to PORT:9051");
@@ -78,17 +89,22 @@ public class HapticMotor : MonoBehaviour
   public void Vibrate()
   {
     // trigger some animation.
-
+    
   }
 
   public void StopVibrate(string other, string detail)
   {
     // stop visual effect if exists
+    /*
     if (visualEffect != null)
     {
       isTriggered = false;
       // visualEffect.Stop();
       visualEffect.enabled = false;
+    }
+    */
+    if(shapeGenerator.isVisualOn){
+      GetComponent<Renderer>().material = defaultMaterial;
     }
     //send TCP command
     Debug.Log("Send stop command to PORT:9051");
