@@ -761,7 +761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: username
-      value: user4
+      value: user5
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222424, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: tcpSender
@@ -797,11 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222430, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222430, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 5209945251484222430, guid: 5e42e5a7d7471a94da2f79d968a5030b, type: 3}
       propertyPath: m_LocalScale.z
@@ -2327,23 +2327,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollection: {fileID: 341366365}
   coordinatesRotationMatrix:
-    e00: -0.9899585
-    e01: -0.115818806
-    e02: 0.010665587
+    e00: -0.8328676
+    e01: -0.5481715
+    e02: 0.004149004
     e03: 0
-    e10: -0.0036501759
-    e11: 0.017333947
-    e12: 0.9928249
+    e10: 0.0022214185
+    e11: 0.003149814
+    e12: 1.0004246
     e13: 0
-    e20: -0.10385895
-    e21: 0.98717886
-    e22: -0.0014620182
+    e20: -0.5514934
+    e21: 0.7965251
+    e22: 0.0007687457
     e23: 0
     e30: 0
     e31: 0
     e32: 0
     e33: 1
-  translateVector: {x: 0.49756315, y: 0.014559507, z: -1.6831986}
+  translateVector: {x: 0.87652606, y: 0.044454813, z: -0.14915532}
   leftController: {fileID: 1511756612}
   converterIsOn: 1
 --- !u!1 &1511756611
@@ -3738,7 +3738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00898c33756f94caafd87ca8fda2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubjectName: user3
+  SubjectName: user5
   Client: {fileID: 179435078}
 --- !u!1 &1930719889 stripped
 GameObject:
