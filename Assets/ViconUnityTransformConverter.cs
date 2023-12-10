@@ -61,11 +61,11 @@ public class ViconUnityTransformConverter : MonoBehaviour
                 // calculate new transform with vicon transform and calibration matr(ix.
                 Matrix4x4 oldRotation = Matrix4x4.TRS(Vector3.zero, viconTransform.rotation, Vector3.one);
                 Matrix4x4 combinedMatrix = coordinatesRotationMatrix * oldRotation;
-                unityTransform.rotation = Quaternion.LookRotation(combinedMatrix.GetColumn(2), combinedMatrix.GetColumn(1));
+                unityTransform.localRotation = Quaternion.LookRotation(combinedMatrix.GetColumn(2), combinedMatrix.GetColumn(1));
             
             //unityTransform.position = Matrix4x4.identity.MultiplyPoint3x4(leftController.position) + new Vector3(0, 0, 0);
 
-            unityTransform.position = coordinatesRotationMatrix.MultiplyPoint3x4(viconTransform.position) + translateVector;
+            unityTransform.localPosition = coordinatesRotationMatrix.MultiplyPoint3x4(viconTransform.position) + translateVector;
         }
      
     }
